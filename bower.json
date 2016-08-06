@@ -1,0 +1,21 @@
+{
+  "name": "throwcast-angular",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Daren Ang <darenang44@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/darenang44/throwcast-angular",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.5.8",
+    "jquery": "^3.1.0"
+  }
+}

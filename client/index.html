@@ -4,9 +4,14 @@
     <title>Throwcast</title>
   </head>
   <body ng-app="throwcast">
-    <input type="text" ng-model="name"></input>
-    <h1>Hello {{name}}</h1>
+    <div ng-view></div>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
     <script src="/lib/angular/angular.min.js"></script>
+    <script src="/lib/angular-route/angular-route.min.js"></script>
+    <script src="/app/app.js"></script>
+    <script src="/app/auth/auth.js"></script>
+    <script src="/app/pod/popular.js"></script>
+    <script src="/app/pod/categories.js"></script>
+    <script src="/app/pod/playlist.js"></script>
   </body>
 </html>

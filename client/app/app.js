@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 angular.module('throwcast', [
   'throwcast.playlist',
@@ -8,7 +8,7 @@ angular.module('throwcast', [
   'ngRoute'
 ])
 
-.config(function($routeProvider){
+.config(function ($routeProvider){
   $routeProvider
   .when('/signin', {
       templateUrl: 'app/auth/signin.html',

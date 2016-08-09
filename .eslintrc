@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "semi": 1,
+    "space-after-keywords": 1,
+    "space-after-function": 1
+  }
+}

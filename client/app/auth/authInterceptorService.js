@@ -1,4 +1,4 @@
-angular.module('throwcast.auth', [])
+angular.module('throwcast.auth')
 
 .factory('authInterceptor', function ($q, $window, $location) {
   return {
@@ -9,11 +9,11 @@ angular.module('throwcast.auth', [])
       }
       return config;
     },
-    response: function (rejection) {
+    response: function (response) {
       if (response.status === 401) {
         $location.path('/signin');
       }
-      return $q.when(rejection);
+      return $q.when(response);
     }
   };
 })

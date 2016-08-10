@@ -5,6 +5,7 @@ angular.module('throwcast', [
   'throwcast.categories',
   'throwcast.popular',
   'throwcast.auth',
+  'throwcast.queue',
   'ngRoute'
 ])
 
@@ -33,6 +34,11 @@ angular.module('throwcast', [
     controller: 'PlaylistController',
     authenticate: true
   })
+  .when('/queue', {
+    templateUrl: 'app/pod/queue.html',
+    controller: 'QueueController',
+    authenticate: true
+  })
   .otherwise({
     redirectTo: '/signin'
   });
@@ -41,6 +47,7 @@ angular.module('throwcast', [
 .run(function ($rootScope, $location, authService) {
   $rootScope.$on('$routeChangeStart', function (evt, next, current) {
     if (next.$$route && next.$$route.authenticate && !authService.isAuth()) {
+      //evt.preventDefault(); commented out for test purposes
       $location.path('/signin');
     }
   });

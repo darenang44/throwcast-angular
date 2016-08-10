@@ -20,17 +20,28 @@ angular.module('throwcast', [
   })
   .when('/', {
       templateUrl: 'app/pod/popular.html',
-      controller: 'PopularController'
+      controller: 'PopularController',
+      authenticate: true
   })
   .when('/categories', {
       templateUrl: 'app/pod/categories.html',
-      controller: 'CategoriesController'
+      controller: 'CategoriesController',
+      authenticate: true
   })
   .when('/playlist', {
     templateUrl: 'app/pod/playlist.html',
-    controller: 'PlaylistController'
+    controller: 'PlaylistController',
+    authenticate: true
   })
   .otherwise({
-    redirectTo: '/'
+    redirectTo: '/signin'
+  });
+})
+
+.run(function ($rootScope, $location, authService) {
+  $rootScope.$on('$routeChangeStart', function (evt, next, current) {
+    if (next.$$route && next.$$route.authenticate && !authService.isAuth()) {
+      $location.path('/signin');
+    }
   });
 });

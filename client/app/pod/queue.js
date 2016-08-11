@@ -1,5 +1,9 @@
-angular.module('throwcast.queue', [])
+angular.module('throwcast.queue', ['ngRoute'])
 
-.controller('QueueController', function ($scope, $http) {
-  $scope.h1 = 'Podcast Queue';
+.config(function ($routeProvider) {
+  $routeProvider
+  .when('/queue', {
+    templateUrl: 'app/pod/queue.html',
+    controller: 'QueueController',
+  });
 });

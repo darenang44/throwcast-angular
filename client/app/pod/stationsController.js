@@ -24,7 +24,6 @@ angular.module('throwcast.stations')
     }).then(function (stations) {
       $scope.stations = stations;
     });
-
   };
   $scope.getStations();
 

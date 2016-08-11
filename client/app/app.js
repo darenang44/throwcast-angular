@@ -11,22 +11,6 @@ angular.module('throwcast', [
 
 .config(function ($routeProvider) {
   $routeProvider
-  .when('/', {
-      templateUrl: 'app/pod/popular.html',
-      controller: 'PopularController',
-  })
-  .when('/stations', {
-      templateUrl: 'app/pod/stations.html',
-      controller: 'StationsController',
-  })
-  .when('/playlist', {
-    templateUrl: 'app/pod/playlist.html',
-    controller: 'PlaylistController',
-  })
-  .when('/queue', {
-    templateUrl: 'app/pod/queue.html',
-    controller: 'QueueController',
-  })
   .otherwise({
     redirectTo: '/signin'
   });

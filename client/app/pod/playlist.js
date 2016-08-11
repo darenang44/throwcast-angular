@@ -1,5 +1,9 @@
-angular.module('throwcast.playlist', [])
+angular.module('throwcast.playlist', ['ngRoute'])
 
-.controller('PlaylistController', function ($scope, $http) {
-  $scope.h1 = 'Playlist';
+.config(function ($routeProvider) {
+  $routeProvider
+  .when('/playlist', {
+    templateUrl: 'app/pod/playlist.html',
+    controller: 'PlaylistController',
+  });
 });

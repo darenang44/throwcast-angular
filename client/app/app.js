@@ -2,7 +2,7 @@
 
 angular.module('throwcast', [
   'throwcast.playlist',
-  'throwcast.categories',
+  'throwcast.stations',
   'throwcast.popular',
   'throwcast.auth',
   'throwcast.queue',
@@ -15,9 +15,9 @@ angular.module('throwcast', [
       templateUrl: 'app/pod/popular.html',
       controller: 'PopularController',
   })
-  .when('/categories', {
-      templateUrl: 'app/pod/categories.html',
-      controller: 'CategoriesController',
+  .when('/stations', {
+      templateUrl: 'app/pod/stations.html',
+      controller: 'StationsController',
   })
   .when('/playlist', {
     templateUrl: 'app/pod/playlist.html',

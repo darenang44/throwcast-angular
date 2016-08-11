@@ -19,14 +19,19 @@ angular.module('throwcast.stations')
   ];
 
   $scope.getStations = function () {
-    $http.get('api/stations/').success(function (stations) {
+    $http.get('api/stations/').then(function (stations) {
+      return stations.data;
+    }).then(function (stations) {
       $scope.stations = stations;
     });
+
   };
   $scope.getStations();
 
   $scope.getStationPodcast = function (id) {
-    $http.get('api/stations/' + id).success(function (stationPodcasts) {
+    $http.get('api/stations/' + id).then(function (stationPodcasts) {
+      return stationPodcasts.data;
+    }).then(function (stationPodcasts) {
       $scope.stationPodcasts = stationPodcasts;
     });
   };

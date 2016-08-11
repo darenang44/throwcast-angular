@@ -5,11 +5,35 @@
       <li><a href="/#/categories">Categories</a></li>
       <li><a href="/#/playlist">Playlist</a></li>
       <li><a href="/#/queue">Podcast Queue</a></li>
+      <br>
+      <button ng-click="logout()">Logout</button>
+      <br>
     </ul>
   </nav>
   <h1>{{h1}}</h1>
+  <h2>News Podcast</h2>
+  <div ng-repeat="news in news">
+    <ul>
+      <li>Title: {{news.name}}</li>
+      <li>Description: {{news.description}}</li>
+      <li><a href="{{news.link}}">Podcast</a></li>
+    </ul>
+  </div>
+  <h2>Sports Podcast</h2>
+  <div ng-repeat="sports in sports">
+    <ul>
+      <li>Title: {{sports.name}}</li>
+      <li>Description: {{sports.description}}</li>
+      <li><a href="{{sports.link}}">Podcast</a></li>
+    </ul>
+  </div>
+  <h2>Entertainment Podcast</h2>
+  <div ng-repeat="entertainment in entertainment">
+    <ul>
+      <li>Title: {{entertainment.name}}</li>
+      <li>Description: {{entertainment.description}}</li>
+      <li><a href="{{entertainment.link}}">Podcast</a></li>
+    </ul>
+  </div>
   <audio id="audio" src="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3" controls></audio>
-  <br>
-  <button ng-click="logout()">Logout</button>
-  <br>
 </div>

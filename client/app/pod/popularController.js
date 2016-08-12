@@ -10,11 +10,14 @@ angular.module('throwcast.popular')
     {name: 'Fantasy Focus5', description: 'Fantasy football advice5', link: '4fantasyfocus.mp3'}
   ];
 
+  $scope.message = 'Dummy message';
+
   $scope.getPodcast = function () {
     $http.get('api/podcasts/').then( function (res) {
       $scope.podcasts = res.data;
     });
   };
+  $scope.getPodcast();
 
   $scope.getPopularPodcast = function () {
     $http.get('api/podcasts/popular').then( function (res) {
@@ -28,16 +31,16 @@ angular.module('throwcast.popular')
     });
   };
 
-  $scope.unsubscribe = function (userId, stationId) {
-    $http.delete('api/user/' + userId + '/subscriptions/' + subId).then(function (res) {
-      $scope.message = 'Unsubscribed to ' + res.data.name + '.';
+  $scope.addToQueue = function (userId, podcastId) {
+    $http.post('api/user/' + userId + '/queue/', {podcastId: podcastId}).then(function (res) {
+      $scope.message = $scope.podcasts.name + ' has been added to your queue.';
       $scope.getPodcast();
     });
   };
 
-  $scope.subscribe = function (userId, stationId) {
-    $http.post('api/user' + userId + '/subscriptions' + stationId).then(function (res) {
-      $scope.message = 'Subscribed to ' + res.data.name + '.';
+  $scope.addPodToPlaylist = function (playlistId, podcastId) {
+    $http.post('api/playlist/' + playlistId + '/podcast/', {podcastId: podcastId}).then(function (res) {
+      $scope.message = $scope.podcasts.name + ' has been added to ' + res.data.name + '.';
       $scope.getPodcast();
     });
   };

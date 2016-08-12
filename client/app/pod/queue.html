@@ -11,5 +11,15 @@
     </ul>
   </nav>
   <h1>{{h1}}</h1>
-  <audio id="audio" src="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3" controls></audio>
+  <div ng-repeat="podcast in podcastQueue track by $index">
+    <ul>
+      <li>Title: {{podcast.title}}</li>
+      <li>Description: {{podcast.description}}</li>
+      <li>Date: {{podcast.pubDate}}</li>
+    </ul>
+    <button ng-click="play($index)">Play Podcast</button>
+    <br>
+    <button ng-click="deleteFromQueue(dummyId, dummyId)">Delete Podcast</button>
+  </div>
+  <audio id="audio" ng-src="{{link}}" controls></audio>
 </div>

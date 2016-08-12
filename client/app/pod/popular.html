@@ -16,7 +16,10 @@
       <li>Title: {{pop.name}}</li>
       <li>Description: {{pop.description}}</li>
       <li><a href="{{pop.link}}">Podcast</a></li>
+      <p ng-show="message">{{message}}</p>
     </ul>
+    <button ng-click"addToQueue(dummyId, dummyId)">Add To Queue</button>
+    <button ng-click"addPodToPlaylist(dummyId, dummyId)">Add To a Playlist</button>
   </div>
   <audio id="audio" src="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3" controls></audio>
 </div>

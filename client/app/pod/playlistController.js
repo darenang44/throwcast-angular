@@ -16,14 +16,14 @@ angular.module('throwcast.playlist')
     });
   };
 
-  $scope.addPlaylist = function (name, owner) {
+  $scope.createPlaylist = function (name, owner) {
     $http.post('api/playlist/', {name: name, owner: owner}).then(function (res) {
       $scope.getAllPlaylist();
     });
   };
 
   $scope.addPodToPlaylist = function (playlistId, podcastId) {
-    $http.post('api/playlist/' + playlistId + '/podcast/' + podcastId).then(function (res) {
+    $http.post('api/playlist/' + playlistId + '/podcast/', {podcastId: podcastId}).then(function (res) {
       $scope.getSpecificPlaylist(playlistId);
     });
   };

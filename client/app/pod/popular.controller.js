@@ -4,6 +4,13 @@ angular.module('throwcast.popular')
   $scope.h1 = 'Top Podcast';
   $scope.podcasts;
   $scope.message;
+  $scope.podcastLink;
+  $scope.stationLink;
+  $scope.stationPodcasts;
+  $scope.flag = false;
+  $scope.stationPodcastButton = 'Show Station Podcasts';
+  //TODO: delete all reference to stations after mvp
+  $scope.stations;
 
   $scope.getPodcast = function () {
     $http.get('http://localhost:8888/api/podcasts/').then( function (res) {
@@ -11,6 +18,31 @@ angular.module('throwcast.popular')
     });
   };
   $scope.getPodcast();
+
+  $scope.getStations = function () {
+    $http.get('http://localhost:8888/api/stations/').then(function (stations) {
+      return stations.data;
+    }).then(function (stations) {
+      $scope.stations = stations;
+    });
+  };
+  $scope.getStations();
+
+  $scope.getStationPodcast = function (stationId) {
+    $http.get('http://localhost:8888/api/stations/' + stationId + '/podcasts/').then(function (stationPodcasts) {
+      $scope.stationPodcasts = stationPodcasts.data;
+      $scope.flag = !$scope.flag;
+      if ($scope.flag) {
+        $scope.stationPodcastButton = 'Hide Station Podcasts';
+      } else {
+        $scope.stationPodcastButton = 'Show Station Podcasts';
+      }
+    });
+  };
+
+  $scope.playPodcast = function (index) {
+    $scope.podcastLink = $scope.podcasts[index].link;
+  };
 
   $scope.getPopularPodcast = function () {
     $http.get('http://localhost:8888/api/podcasts/popular').then( function (res) {

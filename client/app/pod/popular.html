@@ -16,6 +16,7 @@
     <ul>
       <li>Title: {{podcast.title}}</li>
       <li>Description: {{podcast.description}}</li>
+      <li>Release Date: {{ podcast.pubDate | date: "mediumDate"}}</li>
       <p ng-show="message">{{message}}</p>
     </ul>
     <!-- TODO: create service to get userId -->

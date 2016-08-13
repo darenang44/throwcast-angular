@@ -11,44 +11,17 @@
     </ul>
   </nav>
   <h1>{{h1}}</h1>
-  <h2>News Podcast</h2>
-  <p ng-show="message">{{message}}</p>
-  <button ng-click"subscribe(dummyId, dummyId)">Subscribe To Station</button>
-  <button ng-click"unsubscribe(dummyId, dummyId)">Unsubscribe To Station</button>
-  <div ng-repeat="news in news">
+  <div ng-repeat="station in stations track by $index">
+    <p ng-show="message">{{message}}</p>
+    <!-- TODO create service to get userId-->
+    <button ng-click"subscribe(dummyId, stations[$index]._Id)">Subscribe To Station</button>
+    <button ng-click"unsubscribe(dummyId, stations[$index]._Id)">Unsubscribe To Station</button>
+    <img src="{{station.imageUrl}}"/>
     <ul>
-      <li>Title: {{news.name}}</li>
-      <li>Description: {{news.description}}</li>
-      <li><a href="{{news.link}}">Podcast</a></li>
+      <li>Title: {{station.title}}</li>
+      <li>Description: {{station.description}}</li>
     </ul>
-    <button ng-click"addToQueue(dummyId, dummyId)">Add To Queue</button>
-    <button ng-click"addPodToPlaylist(dummyId, dummyId)">Add To a Playlist</button>
+    <!-- TODO when podcasts are available allow user to add to playlist and queue-->
+    <hr>
   </div>
-  <h2>Sports Podcast</h2>
-  <p ng-show="message">{{message}}</p>
-  <button ng-click"subscribe(dummyId, dummyId)">Subscribe To Station</button>
-  <button ng-click"unsubscribe(dummyId, dummyId)">Unsubscribe To Station</button>
-  <div ng-repeat="sports in sports">
-    <ul>
-      <li>Title: {{sports.name}}</li>
-      <li>Description: {{sports.description}}</li>
-      <li><a href="{{sports.link}}">Podcast</a></li>
-    </ul>
-    <button ng-click"addToQueue(dummyId, dummyId)">Add To Queue</button>
-    <button ng-click"addPodToPlaylist(dummyId, dummyId)">Add To a Playlist</button>
-  </div>
-  <h2>Entertainment Podcast</h2>
-  <p ng-show="message">{{message}}</p>
-  <button ng-click"subscribe(dummyId, dummyId)">Subscribe To Station</button>
-  <button ng-click"unsubscribe(dummyId, dummyId)">Unsubscribe To Station</button>
-  <div ng-repeat="entertainment in entertainment">
-    <ul>
-      <li>Title: {{entertainment.name}}</li>
-      <li>Description: {{entertainment.description}}</li>
-      <li><a href="{{entertainment.link}}">Podcast</a></li>
-    </ul>
-    <button ng-click"addToQueue(dummyId, dummyId)">Add To Queue</button>
-    <button ng-click"addPodToPlaylist(dummyId, dummyId)">Add To a Playlist</button>
-  </div>
-  <audio id="audio" src="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3" controls></audio>
 </div>

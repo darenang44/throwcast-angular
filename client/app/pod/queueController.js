@@ -32,16 +32,16 @@ angular.module('throwcast.queue')
      station: '',
   }];
   $scope.link = $scope.podcastQueue[0].link;
-
+  // TODO: maybe just use the getPodcast endpoint to podcast
   $scope.getQueue = function (userId) {
-    $http.get('api/user/' + userId + '/queue/').then(function (res) {
+    $http.get('http://localhost:8888/api/user/' + userId + '/queue/').then(function (res) {
       $scope.queue = res.data;
     });
   };
   $scope.getQueue();
 
   $scope.deleteFromQueue = function (userId, podcastId) {
-    $http.delete('api/user/' + userId + '/queue/' + podcastId).then(function (res) {
+    $http.delete('http://localhost:8888/api/user/' + userId + '/queue/' + podcastId).then(function (res) {
       $scope.getQueue();
     });
   };

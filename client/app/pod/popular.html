@@ -11,15 +11,15 @@
     </ul>
   </nav>
   <h1>{{h1}}</h1>
-  <div ng-repeat="pop in popularPodcast2">
+  <div ng-repeat="podcast in podcasts track by $index">
+    <img src="{{podcast.imageUrl}}"/>
     <ul>
-      <li>Title: {{pop.name}}</li>
-      <li>Description: {{pop.description}}</li>
-      <li><a href="{{pop.link}}">Podcast</a></li>
+      <li>Title: {{podcast.title}}</li>
+      <li>Description: {{podcast.description}}</li>
       <p ng-show="message">{{message}}</p>
     </ul>
-    <button ng-click"addToQueue(dummyId, dummyId)">Add To Queue</button>
-    <button ng-click"addPodToPlaylist(dummyId, dummyId)">Add To a Playlist</button>
+    <!-- TODO: create service to get userId -->
+    <button ng-click"addToQueue(dummyId, podcasts[$index]._id)">Add To Queue</button>
+    <button ng-click"addPodToPlaylist(dummyId, podcasts[$index]._id)">Add To a Playlist</button>
   </div>
-  <audio id="audio" src="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3" controls></audio>
 </div>

@@ -14,14 +14,14 @@ angular.module('throwcast.popular')
 
   $scope.getPodcast = function () {
     $http.get('http://localhost:8888/api/podcasts/').then( function (res) {
-      $scope.podcasts = res.data;
+      $scope.podcasts = res.data.data;
     });
   };
   $scope.getPodcast();
 
   $scope.getStations = function () {
     $http.get('http://localhost:8888/api/stations/').then(function (stations) {
-      return stations.data;
+      return stations.data.data;
     }).then(function (stations) {
       $scope.stations = stations;
     });
@@ -46,13 +46,13 @@ angular.module('throwcast.popular')
 
   $scope.getPopularPodcast = function () {
     $http.get('http://localhost:8888/api/podcasts/popular').then( function (res) {
-      $scope.popularPodcasts = res.data;
+      $scope.popularPodcasts = res.data.data;
     });
   };
 
   $scope.getPopularStations = function () {
     $http.get('http://localhost:8888/api/stations/popular').then( function (res) {
-      $scope.popularStations = res.data;
+      $scope.popularStations = res.data.data;
     });
   };
 
@@ -69,5 +69,4 @@ angular.module('throwcast.popular')
       $scope.getPodcast();
     });
   };
-
 });

@@ -3,10 +3,10 @@ angular.module('throwcast.auth')
 .factory('authService', function ($window) {
   return {
     logout: function () {
-      delete $window.sessionStorage.token;
+      delete $window.localStorage.token;
     },
     isAuth: function () {
-      return !!$window.sessionStorage.token;
+      return !!$window.localStorage.token;
     }
   };
 });

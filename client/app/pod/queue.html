@@ -15,8 +15,7 @@
     <ul>
       <li>Title: {{podcast.title}}</li>
       <li>Description: {{podcast.description}}</li>
-      <!-- TODO: angular date filter -->
-      <li>Date: {{podcast.pubDate}}</li>
+      <li>Release Date: {{ podcast.pubDate | date: "mediumDate"}}</li>
     </ul>
     <button ng-click="play($index)">Play Podcast</button>
     <br>

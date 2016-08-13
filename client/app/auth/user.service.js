@@ -1,21 +1,21 @@
-angular.module('throwcast.user.service', [])
+angular.module('throwcast.auth')
 
 .factory('userService', function ($scope, $http) {
-  $scope.userData;
-  $scope.podcastQueue;
-  $scope.message;
+  var userData;
+  var podcastQueue;
+  var message;
   return {
     getUser: function () {
       $http.get('http://localhost:8888/users/me')
       .then(function (res) {
-        $scope.userData = res.data;
+        userData = res.data;
       });
     },
 
     getQueue: function (userId) {
       $http.get('http://localhost:8888/api/user/' + userId + '/queue/')
       .then(function (res) {
-        $scope.podcastQueue = res.data;
+        podcastQueue = res.data;
       });
     },
 
@@ -29,7 +29,7 @@ angular.module('throwcast.user.service', [])
     addToQueue: function (userId, podcastId) {
       $http.post('http://localhost:8888/api/user/' + userId + '/queue/', {podcastId: podcastId})
       .then(function (res) {
-        $scope.message = res.data.title + ' has been added to your queue.';
+        message = res.data.title + ' has been added to your queue.';
         getQueue();
       });
     },
@@ -37,14 +37,14 @@ angular.module('throwcast.user.service', [])
     unsubscribe: function (userId, stationId) {
       $http.delete('http://localhost:8888/api/user/' + userId + '/subscriptions/', {stationId: stationId})
       .then(function (res) {
-        $scope.message = 'Unsubscribed to ' + res.data.title + '.';
+        message = 'Unsubscribed to ' + res.data.title + '.';
       });
     },
 
     subscribe: function (userId, stationId) {
       $http.post('http://localhost:8888/api/user' + userId + '/subscriptions/', {stationId: stationId})
       .then(function (res) {
-        $scope.message = 'Subscribed to ' + res.data.name + '.';
+        message = 'Subscribed to ' + res.data.name + '.';
       });
     }
   };

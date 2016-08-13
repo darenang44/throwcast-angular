@@ -3,7 +3,6 @@ angular.module('throwcast.queue')
 .controller('QueueController', function ($scope, $http) {
   $scope.h1 = 'Podcast Queue';
   $scope.podcastQueue;
-  $scope.link =  $scope.podcastQueue[0].link || '';
 
   $scope.getQueue = function (userId) {
     $http.get('http://localhost:8888/api/user/' + userId + '/queue/').then(function (res) {

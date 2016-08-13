@@ -6,7 +6,6 @@ angular.module('throwcast.auth')
   $scope.signup = function () {
     $http.post('http://localhost:8888/api/users/', $scope.user)
     .success(function (data) {
-      console.log($scope.user);
       $window.localStorage.token = data.token;
       $scope.message = 'Welcome ' + $scope.user.username;
       $scope.user.username = '';

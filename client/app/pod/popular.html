@@ -1,26 +1,29 @@
 <div>
-  <nav>
+
+  <h1>Stations</h1>
+  <div ng-repeat="station in stations track by $index">
+    <p ng-show="message">{{message}}</p>
+    <img src="{{station.imageUrl}}"/>
     <ul>
-      <li><a href="/#/">Popular</a></li>
-      <li><a href="/#/stations">Stations</a></li>
-      <li><a href="/#/playlist">Playlist</a></li>
-      <li><a href="/#/queue">Podcast Queue</a></li>
-      <br>
-      <button ng-click="logout()">logout</button>
-      <br>
+      <li>Title: {{station.title}}</li>
+      <li>Description: {{station.description}}</li>
+      <button ng-click="playStation($index)">Play Station</button>
     </ul>
-  </nav>
-  <h1>{{h1}}</h1>
+    <hr>
+  </div>
+
+  <!-- TODO: create navigation and logout -->
+  <h1>Popular Podcast</h1>
   <div ng-repeat="podcast in podcasts track by $index">
     <img src="{{podcast.imageUrl}}"/>
     <ul>
       <li>Title: {{podcast.title}}</li>
       <li>Description: {{podcast.description}}</li>
       <li>Release Date: {{ podcast.pubDate | date: "mediumDate"}}</li>
+      <button ng-click="playPodcast($index)">Play Podcast</button>
       <p ng-show="message">{{message}}</p>
     </ul>
-    <!-- TODO: create service to get userId -->
-    <button ng-click"addToQueue(dummyId, podcasts[$index]._id)">Add To Queue</button>
-    <button ng-click"addPodToPlaylist(dummyId, podcasts[$index]._id)">Add To a Playlist</button>
+    <!-- TODO: create button for addToQueue and addPodToPlaylist -->
   </div>
+  <audio id="audio" ng-src="{{podcastLink}}" controls autoplay></audio>
 </div>

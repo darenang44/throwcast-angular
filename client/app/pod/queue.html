@@ -15,10 +15,12 @@
     <ul>
       <li>Title: {{podcast.title}}</li>
       <li>Description: {{podcast.description}}</li>
+      <!-- TODO: angular date filter -->
       <li>Date: {{podcast.pubDate}}</li>
     </ul>
     <button ng-click="play($index)">Play Podcast</button>
     <br>
+    <!-- TODO: create service to get userId -->
     <button ng-click="deleteFromQueue(dummyId, dummyId)">Delete Podcast</button>
   </div>
   <audio id="audio" ng-src="{{link}}" controls></audio>

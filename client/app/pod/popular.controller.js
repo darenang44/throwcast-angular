@@ -28,15 +28,10 @@ angular.module('throwcast.popular')
   };
   $scope.getStations();
 
-  $scope.getStationPodcast = function (stationId) {
-    $http.get('http://localhost:8888/api/stations/' + stationId + '/podcasts/').then(function (stationPodcasts) {
-      $scope.stationPodcasts = stationPodcasts.data;
-      $scope.flag = !$scope.flag;
-      if ($scope.flag) {
-        $scope.stationPodcastButton = 'Hide Station Podcasts';
-      } else {
-        $scope.stationPodcastButton = 'Show Station Podcasts';
-      }
+  $scope.getStationPodcast = function (station, index) {
+    $http.get('http://localhost:8888/api/stations/' + station._id + '/podcasts/').then(function (stationPodcasts) {
+      station.podcast = stationPodcasts.data;
+      $scope.selected = index;
     });
   };
 

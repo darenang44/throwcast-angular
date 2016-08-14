@@ -1,21 +1,23 @@
 <div>
   <h1>throwCAST</h1>
   <h2>Stations</h2>
-  <div ng-repeat="station in stations track by $index">
+  <div ng-repeat="station in stations">
     <p ng-show="message">{{message}}</p>
     <img src="{{station.imageUrl}}" height="100" width="100"/>
     <ul>
       <li>Title: {{station.title}}</li>
       <li>Description: {{station.description}}</li>
-      <button ng-click="getStationPodcast(stations[$index]._id)">{{stationPodcastButton}}</button>
+      <button ng-click="getStationPodcast(station, $index)">{{stationPodcastButton}}</button>
     </ul>
-    <div ng-show="flag" ng-repeat='podcast in stationPodcasts track by $index'>
-      <ul>
-        <li>Title: {{podcast.title}}</li>
-        <li>Description: {{podcast.description}}</li>
-        <li>Release Date: {{ podcast.pubDate | date: "mediumDate"}}</li>
-        <button ng-click="playPodcast($index)">Play Podcast</button>
-      </ul>
+    <div ng-show="selected === $index">
+      <div ng-repeat='podcast in station.podcast'>
+        <ul>
+          <li>Title: {{podcast.title}}</li>
+          <li>Description: {{podcast.description}}</li>
+          <li>Release Date: {{ podcast.pubDate | date: "mediumDate"}}</li>
+          <button ng-click="playPodcast($index)">Play Podcast</button>
+        </ul>
+      </div>
     </div>
     <hr>
   </div>

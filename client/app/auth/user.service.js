@@ -1,14 +1,14 @@
 angular.module('throwcast.auth')
 
-.factory('userService', function ($scope, $http) {
-  var userData;
+.factory('userService', function ($http) {
+  var user;
   var podcastQueue;
   var message;
   return {
     getUser: function () {
-      $http.get('http://localhost:8888/users/me')
+      return $http.get('http://localhost:8888/users/me')
       .then(function (res) {
-        userData = res.data;
+        user.data = res.data;
       });
     },
 

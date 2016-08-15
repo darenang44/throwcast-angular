@@ -1,27 +1,25 @@
-* {
+body {
+  background-image: url('http://www.zastavki.com/pictures/originals/2015/Nature___Forest_Trees_without_leaves_on_a_background_of_stars_098901_.jpg');
   color: white;
   font-style: oblique;
-}
-body {
-  background-color: black;
 }
 
 .mainDiv {
   width: auto;
   height:230px;
-  border:1px solid black;
+  border:1px solid white;
   overflow-x:scroll;
   overflow-y: hidden;
   overflow:auto;
   white-space: nowrap;
-  background-color: gray;
+  background-color: black;
 }
 
 .stationsDiv {
   display: inline-block;
   vertical-align: middle;
   border-right-style: solid;
-  border-color: black;
+  border-color: white;
   padding-top: 10px;
   padding-right: 10px;
 }
@@ -29,20 +27,19 @@ body {
 .newDiv {
   width: auto;
   height:240px;
-  border:1px solid black;
+  border:1px solid white;
   overflow-x:scroll;
   overflow-y: hidden;
   overflow:auto;
   white-space: nowrap;
-  background-color: gray;
+  background-color: black;
 }
-
 
 .podcastDiv {
   display: inline-block;
   vertical-align: middle;
   border-right-style: solid;
-  border-color: black;
+  border-color: white;
   padding-top: 10px;
   padding-right: 10px;
 }
@@ -63,6 +60,21 @@ body {
 
 .link {
   text-decoration: underline;
+}
+
+.authDiv {
+  margin: auto;
+  position: absolute;
+  height: 300px;
+  width: 700px;
+  border:1px solid white;
+  top: 0%;
+  left: 0%;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  background-color: black;
+  opacity: 0.8;
 }
 
 #audio {

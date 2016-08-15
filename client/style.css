@@ -1,0 +1,74 @@
+* {
+  color: white;
+  font-style: oblique;
+}
+body {
+  background-color: black;
+}
+
+.mainDiv {
+  width: auto;
+  height:230px;
+  border:1px solid black;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  overflow:auto;
+  white-space: nowrap;
+  background-color: gray;
+}
+
+.stationsDiv {
+  display: inline-block;
+  vertical-align: middle;
+  border-right-style: solid;
+  border-color: black;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.newDiv {
+  width: auto;
+  height:240px;
+  border:1px solid black;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  overflow:auto;
+  white-space: nowrap;
+  background-color: gray;
+}
+
+
+.podcastDiv {
+  display: inline-block;
+  vertical-align: middle;
+  border-right-style: solid;
+  border-color: black;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+
+.stationImg {
+  display: block;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+}
+
+.podcastImg {
+  display: block;
+  margin: auto;
+  height: 150px;
+  width: 150px;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+#audio {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  border: 3px solid white;
+}

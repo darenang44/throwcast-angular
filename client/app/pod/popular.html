@@ -1,39 +1,48 @@
 <div>
   <h1>throwCAST</h1>
+  <audio id="audio" ng-src="{{podcastLink}}" controls autoplay></audio>
+  <hr>
   <h2>Stations</h2>
+  <hr>
+  <div class="mainDiv">
+    <div ng-click="getStationPodcast(station, $index)" class="stationsDiv" ng-repeat="station in stations">
+      <p ng-show="message">{{message}}</p>
+      <img class="stationImg" src="{{station.imageUrl}}"/>
+      <ul>
+        <li class="stationLi">Station: {{station.title}}</li>
+        <li class="stationLi">Description: {{station.description}}</li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+
   <div ng-repeat="station in stations">
-    <p ng-show="message">{{message}}</p>
-    <img src="{{station.imageUrl}}" height="100" width="100"/>
-    <ul>
-      <li>Title: {{station.title}}</li>
-      <li>Description: {{station.description}}</li>
-      <button ng-click="getStationPodcast(station, $index)">{{stationPodcastButton}}</button>
-    </ul>
-    <div ng-show="selected === $index">
-      <div ng-repeat='podcast in station.podcast'>
+    <div class="newDiv" ng-show="selected === $index">
+      <div class="podcastDiv" ng-repeat='podcast in station.podcast'>
+        <img class="podcastImg" src="{{podcast.imageUrl}}"/>
         <ul>
-          <li>Title: {{podcast.title}}</li>
+          <li class="link" ng-click="playPodcast($index)">Title: {{podcast.title}}</li>
           <li>Description: {{podcast.description}}</li>
-          <li>Release Date: {{ podcast.pubDate | date: "mediumDate"}}</li>
-          <button ng-click="playPodcast($index)">Play Podcast</button>
+          <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
         </ul>
       </div>
     </div>
-    <hr>
   </div>
 
   <!-- TODO: create navigation and logout -->
+  <hr>
   <h2>Popular Podcast</h2>
-  <div ng-repeat="podcast in podcasts track by $index">
-    <img src="{{podcast.imageUrl}}" height="100" width="100"/>
-    <ul>
-      <li>Title: {{podcast.title}}</li>
-      <li>Description: {{podcast.description}}</li>
-      <li>Release Date: {{ podcast.pubDate | date: "mediumDate"}}</li>
-      <button ng-click="playPodcast($index)">Play Podcast</button>
-      <p ng-show="message">{{message}}</p>
-    </ul>
-    <!-- TODO: create button for addToQueue and addPodToPlaylist -->
+  <hr>
+  <div class="mainDiv">
+    <div class="podcastDiv" ng-repeat="podcast in podcasts track by $index">
+      <img class="podcastImg" src="{{podcast.imageUrl}}"/>
+      <ul>
+        <li class="link" ng-click="playPodcast($index)">Title: {{podcast.title}}</li>
+        <li>Description: {{podcast.description}}</li>
+        <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
+        <p ng-show="message">{{message}}</p>
+      </ul>
+      <!-- TODO: create button for addToQueue and addPodToPlaylist -->
+    </div>
   </div>
-  <audio id="audio" ng-src="{{podcastLink}}" controls autoplay></audio>
 </div>

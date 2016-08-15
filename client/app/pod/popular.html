@@ -14,20 +14,21 @@
       </ul>
     </div>
   </div>
-  <hr>
 
   <div ng-show="selected === $index" ng-repeat="station in stations">
+    <hr>
+    <h2>{{station.title}}</h2>
+    <hr>
     <div class="newDiv">
-      <div class="podcastDiv" ng-repeat='podcast in stations.podcast'>
+      <div class="podcastDiv" ng-repeat='podcast in selectedStationPodcasts'>
         <img class="podcastImg" src="{{podcast.imageUrl}}"/>
         <ul>
-          <li class="link" ng-click="playStationPodcast($index)">Title: {{podcast.title}}</li>
+          <li class="link" ng-click="play(podcast.link)">Title: {{podcast.title}}</li>
           <li>Description: {{podcast.description}}</li>
           <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
         </ul>
       </div>
     </div>
-    <h2>{{station.title}}<h2>
   </div>
 
   <!-- TODO: create navigation and logout -->
@@ -38,7 +39,7 @@
     <div class="podcastDiv" ng-repeat="podcast in podcasts track by $index">
       <img class="podcastImg" src="{{podcast.imageUrl}}"/>
       <ul>
-        <li class="link" ng-click="playPodcast($index)">Title: {{podcast.title}}</li>
+        <li class="link" ng-click="play(podcast.link)">Title: {{podcast.title}}</li>
         <li>Description: {{podcast.description}}</li>
         <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
         <p ng-show="message">{{message}}</p>

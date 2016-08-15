@@ -7,29 +7,35 @@
   <div class="mainDiv">
     <div ng-click="getStationPodcast(station, $index)" class="stationsDiv" ng-repeat="station in stations">
       <p ng-show="message">{{message}}</p>
-      <img src="{{station.imageUrl}}" height="200" width="200"/>
+      <img class="stationImg" src="{{station.imageUrl}}"/>
       <ul>
         <li class="stationLi">Station: {{station.title}}</li>
         <li class="stationLi">Description: {{station.description}}</li>
       </ul>
-      <div class="mainDiv" ng-show="selected === $index">
-        <div ng-repeat='podcast in station.podcast'>
-          <ul>
-            <li class="link" ng-click="playPodcast($index)">Title: {{podcast.title}}</li>
-            <li>Description: {{podcast.description}}</li>
-            <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
-          </ul>
-        </div>
+    </div>
+  </div>
+  <hr>
+
+  <div ng-repeat="station in stations">
+    <div class="newDiv" ng-show="selected === $index">
+      <div class="podcastDiv" ng-repeat='podcast in station.podcast'>
+        <img class="podcastImg" src="{{podcast.imageUrl}}"/>
+        <ul>
+          <li class="link" ng-click="playPodcast($index)">Title: {{podcast.title}}</li>
+          <li>Description: {{podcast.description}}</li>
+          <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
+        </ul>
       </div>
     </div>
   </div>
+
   <!-- TODO: create navigation and logout -->
   <hr>
   <h2>Popular Podcast</h2>
   <hr>
   <div class="mainDiv">
     <div class="podcastDiv" ng-repeat="podcast in podcasts track by $index">
-      <img src="{{podcast.imageUrl}}" height="200" width="200"/>
+      <img class="podcastImg" src="{{podcast.imageUrl}}"/>
       <ul>
         <li class="link" ng-click="playPodcast($index)">Title: {{podcast.title}}</li>
         <li>Description: {{podcast.description}}</li>

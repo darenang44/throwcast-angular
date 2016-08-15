@@ -4,12 +4,11 @@
 }
 body {
   background-color: black;
-  background-size: 100% 100%;
 }
 
 .mainDiv {
   width: auto;
-  height:300px;
+  height:230px;
   border:1px solid black;
   overflow-x:scroll;
   overflow-y: hidden;
@@ -21,16 +20,45 @@ body {
 .stationsDiv {
   display: inline-block;
   vertical-align: middle;
+  border-right-style: solid;
+  border-color: black;
+  padding-top: 10px;
+  padding-right: 10px;
 }
+
+.newDiv {
+  width: auto;
+  height:240px;
+  border:1px solid black;
+  overflow-x:scroll;
+  overflow-y: hidden;
+  overflow:auto;
+  white-space: nowrap;
+  background-color: gray;
+}
+
 
 .podcastDiv {
   display: inline-block;
   vertical-align: middle;
+  border-right-style: solid;
+  border-color: black;
+  padding-top: 10px;
+  padding-right: 10px;
 }
 
-img {
+.stationImg {
   display: block;
   margin: auto;
+  height: 150px;
+  width: 150px;
+}
+
+.podcastImg {
+  display: block;
+  margin: auto;
+  height: 150px;
+  width: 150px;
 }
 
 .link {

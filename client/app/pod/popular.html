@@ -5,9 +5,9 @@
   <h2>Stations</h2>
   <hr>
   <div class="mainDiv">
-    <div ng-click="getStationPodcast(station, $index)" class="stationsDiv" ng-repeat="station in stations">
+    <div class="stationsDiv" ng-repeat="station in stations">
       <p ng-show="message">{{message}}</p>
-      <img class="stationImg" src="{{station.imageUrl}}"/>
+      <img ng-click="getStationPodcast(station, $index)" class="stationImg" src="{{station.imageUrl}}"/>
       <ul>
         <li class="stationLi">Station: {{station.title}}</li>
         <li class="stationLi">Description: {{station.description}}</li>
@@ -16,17 +16,18 @@
   </div>
   <hr>
 
-  <div ng-repeat="station in stations">
-    <div class="newDiv" ng-show="selected === $index">
-      <div class="podcastDiv" ng-repeat='podcast in station.podcast'>
+  <div ng-show="selected === $index" ng-repeat="station in stations">
+    <div class="newDiv">
+      <div class="podcastDiv" ng-repeat='podcast in stations.podcast'>
         <img class="podcastImg" src="{{podcast.imageUrl}}"/>
         <ul>
-          <li class="link" ng-click="playPodcast($index)">Title: {{podcast.title}}</li>
+          <li class="link" ng-click="playStationPodcast($index)">Title: {{podcast.title}}</li>
           <li>Description: {{podcast.description}}</li>
           <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
         </ul>
       </div>
     </div>
+    <h2>{{station.title}}<h2>
   </div>
 
   <!-- TODO: create navigation and logout -->

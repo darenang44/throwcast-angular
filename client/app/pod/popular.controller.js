@@ -30,13 +30,17 @@ angular.module('throwcast.popular')
 
   $scope.getStationPodcast = function (station, index) {
     $http.get('http://localhost:8888/api/stations/' + station._id + '/podcasts/').then(function (stationPodcasts) {
-      station.podcast = stationPodcasts.data;
+      $scope.stations.podcast = stationPodcasts.data;
       $scope.selected = index;
     });
   };
 
   $scope.playPodcast = function (index) {
     $scope.podcastLink = $scope.podcasts[index].link;
+  };
+
+  $scope.playStationPodcast = function (index) {
+    $scope.podcastLink = $scope.stations.podcast[index].link;
   };
 
   $scope.getPopularPodcast = function () {

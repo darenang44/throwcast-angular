@@ -5,7 +5,6 @@ angular.module('throwcast.popular')
   $scope.podcasts;
   $scope.message;
   $scope.podcastLink;
-  $scope.stationLink;
   $scope.stationPodcasts;
   $scope.flag = false;
   $scope.stationPodcastButton = 'Show Station Podcasts';

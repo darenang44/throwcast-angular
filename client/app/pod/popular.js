@@ -4,8 +4,7 @@ angular.module('throwcast.popular', ['ngRoute'])
   $routeProvider
   .when('/', {
       templateUrl: 'app/pod/popular.html',
-      controller: 'PopularController',
-      authenticate: true
+      controller: 'PopularController'
       //TODO: need to set authenticate to true
   });
 });

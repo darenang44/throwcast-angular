@@ -1,5 +1,5 @@
 body {
-  background-image: url('http://www.zastavki.com/pictures/originals/2015/Nature___Forest_Trees_without_leaves_on_a_background_of_stars_098901_.jpg');
+  background-image: url('http://hdwallpaperbackgrounds.net/wp-content/uploads/2016/07/Blue-Background-Images.jpg');
   color: white;
   font-style: oblique;
 }
@@ -12,7 +12,7 @@ body {
   overflow-y: hidden;
   overflow:auto;
   white-space: nowrap;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .stationsDiv {
@@ -32,7 +32,7 @@ body {
   overflow-y: hidden;
   overflow:auto;
   white-space: nowrap;
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 .podcastDiv {
@@ -73,8 +73,7 @@ body {
   bottom: 0;
   right: 0;
   text-align: center;
-  background-color: black;
-  opacity: 0.8;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 #audio {

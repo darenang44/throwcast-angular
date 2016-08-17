@@ -1,41 +1,32 @@
 angular.module('throwcast.popular')
 
-.controller('PopularController', function ($scope, $http) {
+.controller('PopularController', function ($scope, $http, PodcastService, StationsService) {
   $scope.h1 = 'Top Podcast';
-  $scope.podcasts;
   $scope.message;
   $scope.podcastLink;
   $scope.stationPodcasts;
-  $scope.flag = false;
   $scope.stationPodcastButton = 'Show Station Podcasts';
   //TODO: delete all reference to stations after mvp
   $scope.stations;
 
-  $scope.getPodcast = function () {
-    $http.get('http://localhost:8888/api/podcasts/').then( function (res) {
-      $scope.podcasts = res.data.data;
-    });
-  };
-  $scope.getPodcast();
 
-  $scope.getStations = function () {
-    $http.get('http://localhost:8888/api/stations/').then(function (stations) {
-      return stations.data.data;
-    }).then(function (stations) {
-      $scope.stations = stations;
-    });
-  };
-  $scope.getStations();
+ PodcastService.getAllPodcasts().then(function () {
+   $scope.podcasts = PodcastService.data.podcasts;
+ });
+
+  StationsService.getStations().then(function () {
+    $scope.stations = StationsService.data.stations;
+  });
 
   $scope.getStationPodcast = function (station, index) {
-    $http.get('http://localhost:8888/api/stations/' + station._id + '/podcasts/').then(function (stationPodcasts) {
-      $scope.selectedStationPodcasts = stationPodcasts.data;
-      $scope.selected = index;
+    StationsService.getStationPodcast(station, index).then(function () {
+      $scope.selectedStationPodcasts = StationsService.data.selectedStationPodcasts;
+      $scope.selected = StationsService.data.selected;
     });
   };
 
   $scope.play = function (link) {
-    $scope.podcastLink = link;
+    $scope.podcastLink = PodcastService.play(link);
   };
 
   $scope.getPopularPodcast = function () {

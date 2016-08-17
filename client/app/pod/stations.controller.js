@@ -1,25 +1,23 @@
 angular.module('throwcast.stations')
 
-.controller('StationsController', function ($scope, $http) {
+.controller('StationsController', function ($scope, $http, StationsService) {
   $scope.h1 = 'Stations';
   $scope.message;
   $scope.stations;
 
-  $scope.getStations = function () {
-    $http.get('http://localhost:8888/api/stations/').then(function (stations) {
-      return stations.data;
-    }).then(function (stations) {
-      $scope.stations = stations;
-    });
-  };
-  $scope.getStations();
+  StationsService.getStations().then(function () {
+    $scope.stations = StationsService.data.stations;
+  });
 
   $scope.getStationPodcast = function (id) {
-    $http.get('http://localhost:8888/api/stations/' + id).then(function (stationPodcasts) {
-      return stationPodcasts.data;
-    }).then(function (stationPodcasts) {
-      $scope.stationPodcasts = stationPodcasts;
+    StationsService.getStationPodcast(id).then(function () {
+      $scope.selectedStationPodcasts = StationsService.data.selectedStationPodcasts;
+      $scope.selected = StationsService.data.selected;
     });
+  };
+
+  $scope.play = function (link) {
+    $scope.podcastLink = PodcastService.play(link);
   };
 
   $scope.addToQueue = function (userId, podcastId) {

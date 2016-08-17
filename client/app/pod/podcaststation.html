@@ -1,0 +1,14 @@
+<div>
+  <h2>{{station.title}}</h2>
+  <hr>
+  <div class="newDiv">
+    <div class="podcastDiv" ng-repeat='podcast in allStationPodcasts'>
+      <img class="podcastImg" src="{{podcast.imageUrl}}"/>
+      <ul>
+        <li class="link" ng-click="play(podcast.link)">Title: {{podcast.title}}</li>
+        <li>Description: {{podcast.description}}</li>
+        <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

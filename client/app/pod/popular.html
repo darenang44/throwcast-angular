@@ -1,37 +1,8 @@
 <div>
+  <div>
   <h1>throwCAST</h1>
   <audio id="audio" ng-src="{{podcastLink}}" controls autoplay></audio>
-  <hr>
-  <h2>Stations</h2>
-  <hr>
-  <div class="mainDiv">
-    <div class="stationsDiv" ng-repeat="station in stations">
-      <p ng-show="message">{{message}}</p>
-      <img ng-click="getStationPodcast(station, $index)" class="stationImg" src="{{station.imageUrl}}"/>
-      <ul>
-        <li class="stationLi">Station: {{station.title}}</li>
-        <li class="stationLi">Description: {{station.description}}</li>
-      </ul>
-    </div>
   </div>
-
-  <div ng-show="selected === $index" ng-repeat="station in stations">
-    <hr>
-    <h2>{{station.title}}</h2>
-    <hr>
-    <div class="newDiv">
-      <div class="podcastDiv" ng-repeat='podcast in selectedStationPodcasts'>
-        <img class="podcastImg" src="{{podcast.imageUrl}}"/>
-        <ul>
-          <li class="link" ng-click="play(podcast.link)">Title: {{podcast.title}}</li>
-          <li>Description: {{podcast.description}}</li>
-          <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <!-- TODO: create navigation and logout -->
   <hr>
   <h2>Popular Podcast</h2>
   <hr>
@@ -47,4 +18,22 @@
       <!-- TODO: create button for addToQueue and addPodToPlaylist -->
     </div>
   </div>
+  <hr>
+  <a href="/#/stations/">
+    <h2>Stations</h2>
+  </a>
+  <hr>
+  <div class="mainDiv">
+    <div class="stationsDiv" ng-repeat="station in stations">
+      <p ng-show="message">{{message}}</p>
+      <a href="/#/stations/{{station._id}}">
+        <img class="stationImg" src="{{station.imageUrl}}"/>
+      </a>
+      <ul>
+        <li class="stationLi">Station: {{station.title}}</li>
+        <li class="stationLi">Description: {{station.description}}</li>
+      </ul>
+    </div>
+  </div>
+  <!-- TODO: create navigation and logout -->
 </div>

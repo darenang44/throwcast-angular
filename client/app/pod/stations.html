@@ -1,27 +1,16 @@
 <div>
-  <nav>
-    <ul>
-      <li><a href="/#/">Popular</a></li>
-      <li><a href="/#/Stations">Stations</a></li>
-      <li><a href="/#/playlist">Playlist</a></li>
-      <li><a href="/#/queue">Podcast Queue</a></li>
-      <br>
-      <button ng-click="logout()">Logout</button>
-      <br>
-    </ul>
-  </nav>
-  <h1>{{h1}}</h1>
-  <div ng-repeat="station in stations track by $index">
-    <p ng-show="message">{{message}}</p>
-    <!-- TODO create service to get userId-->
-    <button ng-click"subscribe(dummyId, stations[$index]._Id)">Subscribe To Station</button>
-    <button ng-click"unsubscribe(dummyId, stations[$index]._Id)">Unsubscribe To Station</button>
-    <img src="{{station.imageUrl}}"/>
-    <ul>
-      <li>Title: {{station.title}}</li>
-      <li>Description: {{station.description}}</li>
-    </ul>
-    <!-- TODO when podcasts are available allow user to add to playlist and queue-->
-    <hr>
+  <h2>Stations</h2>
+  <hr>
+  <div class="mainDiv">
+    <div class="stationsDiv" ng-repeat="station in stations">
+      <p ng-show="message">{{message}}</p>
+      <a href="/#/stations/{{station._id}}">
+        <img class="stationImg" src="{{station.imageUrl}}"/>
+      </a>
+      <ul>
+        <li class="stationLi">Station: {{station.title}}</li>
+        <li class="stationLi">Description: {{station.description}}</li>
+      </ul>
+    </div>
   </div>
 </div>

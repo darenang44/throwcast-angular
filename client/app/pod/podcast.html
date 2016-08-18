@@ -1,1 +1,16 @@
-<div></div>
+<div>
+  <h2>All Podcast</h2>
+  <audio id="audio" ng-src="{{podcastLink}}" controls autoplay></audio>
+  <div class="mainDiv">
+    <div class="podcastDiv" ng-repeat="podcast in podcasts track by $index">
+      <img class="podcastImg" src="{{podcast.imageUrl}}"/>
+      <ul>
+        <li class="link" ng-click="play(podcast.link)">Title: {{podcast.title}}</li>
+        <li>Description: {{podcast.description}}</li>
+        <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
+        <p ng-show="message">{{message}}</p>
+      </ul>
+      <!-- TODO: create button for addToQueue and addPodToPlaylist -->
+    </div>
+  </div>
+</div>

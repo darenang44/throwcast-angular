@@ -1,43 +1,35 @@
 angular.module('throwcast.playlist')
 
-.controller('PlaylistController', function ($scope, $http) {
+.controller('PlaylistController', function ($scope, $http, PlaylistService) {
   $scope.h1 = 'Playlist';
   $scope.allPlaylist;
   $scope.specificPlaylist;
 
-  $scope.getAllPlaylist = function () {
-    $http.get('http://localhost:8888/api/playlist/').then(function (res) {
-      $scope.allPlaylist = res.data;
-    });
-  };
-  $scope.getAllPlaylist();
-
+  PlaylistService.getAllPlaylist().then(function (res) {
+    $scope.allPlaylist = PlaylistService.data.allPlaylist;
+  });
   $scope.getSpecificPlaylist = function (playlistId) {
-    $http.get('http://localhost:8888/api/playlist/' + playlistId).then(function (res) {
-      $scope.specificPlaylist = res.data;
+    PlaylistService.getSpecificPlaylist(playlistId).then(function () {
+      $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
     });
   };
-
   $scope.createPlaylist = function (name, owner) {
-    $http.post('http://localhost:8888/api/playlist/', {name: name, owner: owner}).then(function (res) {
+    PlaylistService.createPlaylist(name, onwer).then(function () {
       $scope.getAllPlaylist();
     });
   };
-
   $scope.addPodToPlaylist = function (playlistId, podcastId) {
-    $http.post('http://localhost:8888/api/playlist/' + playlistId + '/podcast/', {podcastId: podcastId}).then(function (res) {
+    PlaylistService.addPodToPlaylist(playlistId, podcastId).then(function () {
       $scope.getSpecificPlaylist(playlistId);
     });
   };
-
   $scope.deletePlaylist = function (playlistId) {
-    $http.delete('http://localhost:8888/api/playlist/' + playlistId).then(function (res) {
+    PlaylistService.deletePlaylist(playlistId).then(function (res) {
       $scope.getAllPlaylist();
     });
   };
-
   $scope.deletePodFromPlaylist = function (playlistId, podcastId) {
-    $http.delete('http://localhost:8888/api/playlist/' + playlistId + '/podcast/' + podcastId).then(function (res) {
+    PlaylistService.deletePodFromPlaylist(playlistId, podcastId).then(function () {
       $scope.getSpecificPlaylist(playlistId);
     });
   };

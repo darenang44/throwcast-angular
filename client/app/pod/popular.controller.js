@@ -9,7 +9,6 @@ angular.module('throwcast.popular')
   //TODO: delete all reference to stations after mvp
   $scope.stations;
 
-
  PodcastService.getAllPodcasts().then(function () {
    $scope.podcasts = PodcastService.data.podcasts;
  });

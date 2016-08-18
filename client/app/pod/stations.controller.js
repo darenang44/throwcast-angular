@@ -1,6 +1,6 @@
 angular.module('throwcast.stations')
 
-.controller('StationsController', function ($scope, $http, StationsService) {
+.controller('StationsController', function ($scope, StationsService, PlaylistService) {
   $scope.h1 = 'Stations';
   $scope.message;
   $scope.stations;
@@ -16,6 +16,24 @@ angular.module('throwcast.stations')
     });
   };
 
+  $scope.unsubscribe = function (userId, stationId) {
+    $http.delete('http://localhost:8888/api/user/' + userId + '/subscriptions/', {stationId: stationId}).then(function (res) {
+      $scope.message = 'Unsubscribed to ' + res.data.name + '.';
+      $scope.getStations();
+    });
+  };
+
+  $scope.subscribe = function (userId, stationId) {
+    $http.post('http://localhost:8888/api/user' + userId + '/subscriptions/', {stationId: stationId}).then(function (res) {
+      $scope.message = 'Subscribed to ' + res.data.name + '.';
+      $scope.getStations();
+    });
+  };
+
+
+
+
+
   $scope.play = function (link) {
     $scope.podcastLink = PodcastService.play(link);
   };
@@ -30,20 +48,6 @@ angular.module('throwcast.stations')
   $scope.addPodToPlaylist = function (playlistId, podcastId) {
     $http.post('http://localhost:8888/api/playlist/' + playlistId + '/podcast/', {podcastId: podcastId}).then(function (res) {
       $scope.message = $scope.stationPodcasts.name + ' has been added to ' + res.data.name + '.';
-      $scope.getStations();
-    });
-  };
-
-  $scope.unsubscribe = function (userId, stationId) {
-    $http.delete('http://localhost:8888/api/user/' + userId + '/subscriptions/', {stationId: stationId}).then(function (res) {
-      $scope.message = 'Unsubscribed to ' + res.data.name + '.';
-      $scope.getStations();
-    });
-  };
-
-  $scope.subscribe = function (userId, stationId) {
-    $http.post('http://localhost:8888/api/user' + userId + '/subscriptions/', {stationId: stationId}).then(function (res) {
-      $scope.message = 'Subscribed to ' + res.data.name + '.';
       $scope.getStations();
     });
   };

@@ -14,6 +14,12 @@ angular.module('throwcast.auth')
         user.data = res.data;
       });
     },
+    unsubscribe: function (userId, stationId) {
+      return $http.delete('http://localhost:8888/api/user/' + userId + '/subscriptions/', {stationId: stationId});
+    },
+    subscribe: function (userId, stationId) {
+      return $http.post('http://localhost:8888/api/user' + userId + '/subscriptions/', {stationId: stationId});
+    },
     user: user,
     getQueue: function (userId) {
       $http.get('http://localhost:8888/api/user/' + userId + '/queue/')

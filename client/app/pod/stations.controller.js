@@ -20,8 +20,4 @@ angular.module('throwcast.stations')
       $scope.message = 'Subscribed to ' + res.data.name + '.';
     });
   };
-  $scope.play = function (link) {
-    $scope.podcastLink = PodcastService.play(link);
-  };
-
 });

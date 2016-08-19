@@ -8,5 +8,4 @@ angular.module('throwcast.profile')
     });
   };
    $scope.getSpecificPlaylist($routeParams.id);
-   console.log($routeParams.id);
 });

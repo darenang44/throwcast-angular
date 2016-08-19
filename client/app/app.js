@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('throwcast', [
-  'throwcast.playlist',
+  'throwcast.profile',
   'throwcast.stations',
   'throwcast.popular',
   'throwcast.auth',

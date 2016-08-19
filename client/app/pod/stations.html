@@ -12,6 +12,8 @@
         <li class="stationLi">Station: {{station.title}}</li>
         <li class="stationLi">Description: {{station.description}}</li>
       </ul>
+      <!--TODO: make sure you have the correct endpoint  -->
+      <button ng-click="subscribe(stations[$index]._id)">Subscribe</button>
     </div>
   </div>
 </div>

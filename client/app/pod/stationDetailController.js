@@ -1,6 +1,6 @@
 angular.module('throwcast.stations')
 
-.controller('StationDetailController', function ($scope, $http, StationsService, $routeParams) {
+.controller('StationDetailController', function ($scope, $http, StationsService, $routeParams, PodcastService) {
 
   $scope.getStationPodcastsById = function (id) {
     StationsService.getStationPodcast(id).then(function () {
@@ -8,4 +8,8 @@ angular.module('throwcast.stations')
     });
   };
    $scope.getStationPodcastsById($routeParams.id);
+
+   $scope.play = function (link) {
+     $scope.podcastLink = PodcastService.play(link);
+   };
 });

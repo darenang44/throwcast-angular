@@ -1,0 +1,23 @@
+<div>
+  <h1>My Profile</h1>
+  <hr>
+  <h1>{{user.username}}</h1>
+  <div>
+		Playlist Name: <input type="text" ng-model="playlistName">
+    <button ng-click="createPlaylist(playlistName, user._id)">Create Playlist</button>
+  <hr>
+  <h1>My Playlists</h1>
+    <div ng-repeat="playlist in allPlaylist">
+      <ul>
+        <a href="/#/playlist/{{playlist._id}}">
+          <li>Playlist Name: {{playlist.name}}</li>
+        </a>
+       <li>Created At: {{playlist.createdAt | date: 'mediumDate'}}</li>
+      </ul>
+      <button ng-click="deletePlaylist(allPlaylist[$index]._id)">Delete Playlist</button>
+    </div>
+  <hr>
+  <h1>Subcribed Stations</h1>
+  </div>
+  <audio id="audio" src="http://freshly-ground.com/data/audio/mpc/20090119%20-%20Untitled%20Groove.mp3" controls></audio>
+</div>

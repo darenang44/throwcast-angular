@@ -1,15 +1,15 @@
 angular.module('throwcast.profile')
 
-.controller('ProfileController', function ($scope, $http, ProfileService, userService) {
+.controller('ProfileController', function ($scope, $http, ProfileService, userService, PlaylistService) {
   userService.getUserAsync().then(function (user) {
     $scope.user = user;
   });
-  ProfileService.getAllPlaylist().then(function (res) {
-    $scope.allPlaylist = ProfileService.data.allPlaylist;
+  PlaylistService.getAllPlaylist().then(function (res) {
+    $scope.allPlaylist = PlaylistService.data.allPlaylist;
   });
   $scope.getSpecificPlaylist = function (playlistId) {
-    ProfileService.getSpecificPlaylist(playlistId).then(function () {
-      $scope.specificPlaylist = ProfileService.data.specificPlaylist;
+    PlaylistService.getSpecificPlaylist(playlistId).then(function () {
+      $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
     });
   };
   $scope.createPlaylist = function (name, owner) {

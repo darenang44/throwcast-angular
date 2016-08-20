@@ -5,7 +5,6 @@ angular.module('throwcast', [
   'throwcast.stations',
   'throwcast.popular',
   'throwcast.auth',
-  'throwcast.queue',
   'throwcast.podcast',
   'throwcast.player',
   'ngRoute'

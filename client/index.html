@@ -7,7 +7,8 @@
   <body ng-app="throwcast">
     <div ng-controller="PlayerController">
       {{player}}
-      <audio ng-show="podcast.podcastLink" id="audio" src="{{podcast.podcastLink}}" controls autoplay></audio>
+      {{podcast.podcastLink}}
+      <audio ng-show="podcast.podcastLink" id="audio" ng-src="{{podcast.podcastLink}}" controls autoplay></audio>
     </div>
     <div>
       <h1>throwCAST</h1>
@@ -17,25 +18,25 @@
     <script src="/lib/angular/angular.min.js"></script>
     <script src="/lib/angular-route/angular-route.min.js"></script>
     <script src="/app/app.js"></script>
-    <script src="/app/components/auth/auth.js"></script>
-    <script src="/app/components/auth/auth.controller.js"></script>
-    <script src="/app/components/auth/auth.interceptor.service.js"></script>
-    <script src="/app/components/auth/auth.service.js"></script>
-    <script src="/app/components/auth/user.service.js"></script>
+    <script src="/app/account/auth.js"></script>
+    <script src="/app/account/auth.controller.js"></script>
+    <script src="/app/account/auth.interceptor.service.js"></script>
+    <script src="/app/account/auth.service.js"></script>
+    <script src="/app/account/user.service.js"></script>
     <script src="/app/pod/popular.js"></script>
     <script src="/app/pod/popular.controller.js"></script>
     <script src="/app/pod/podcast.js"></script>
-    <script src="/app/pod/PodcastService.js"></script>
+    <script src="/app/pod/podcast.service.js"></script>
     <script src="/app/pod/podcast.controller.js"></script>
     <script src="/app/pod/stations.js"></script>
     <script src="/app/pod/stations.controller.js"></script>
-    <script src="/app/pod/stationDetailController.js"></script>
-    <script src="/app/pod/StationsService.js"></script>
+    <script src="/app/pod/station.detail.controller.js"></script>
+    <script src="/app/pod/stations.service.js"></script>
     <script src="/app/pod/profile.js"></script>
-    <script src="/app/pod/ProfileService.js"></script>
+    <script src="/app/pod/profile.service.js"></script>
     <script src="/app/pod/profile.controller.js"></script>
-    <script src="/app/pod/PlaylistDetailController.js"></script>
-    <script src="/app/pod/PlayerController.js"></script>
+    <script src="/app/pod/playlist.detail.controller.js"></script>
+    <script src="/app/pod/player.controller.js"></script>
     <script src="/app/pod/queue.js"></script>
     <script src="/app/pod/queue.controller.js"></script>
   </body>

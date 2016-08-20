@@ -7,14 +7,16 @@ angular.module('throwcast', [
   'throwcast.auth',
   'throwcast.podcast',
   'throwcast.player',
+  'throwcast.playlist',
   'ngRoute'
 ])
 
-.config(function ($routeProvider) {
+.config(function ($routeProvider, $sceProvider) {
   $routeProvider
   .otherwise({
     redirectTo: '/signin'
   });
+  $sceProvider.enabled(false);
 })
 
 .run(function ($rootScope, $location, authService) {

@@ -1,10 +1,10 @@
-angular.module('throwcast.profile')
+angular.module('throwcast.playlist')
 
-.controller('PlaylistDetailController', function ($scope, $http, ProfileService, $routeParams) {
+.controller('PlaylistDetailController', function ($scope, $http, PlaylistService, $routeParams) {
 
   $scope.getSpecificPlaylist = function (id) {
-    ProfileService.getSpecificPlaylist(id).then(function () {
-      $scope.specificPlaylist = ProfileService.data.specificPlaylist;
+    PlaylistService.getSpecificPlaylist(id).then(function () {
+      $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
     });
   };
    $scope.getSpecificPlaylist($routeParams.id);

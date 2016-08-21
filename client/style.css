@@ -76,14 +76,47 @@ body {
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-#audio {
+(max-width: 500px) {
+  #audio {
+    top: 10px;
+    right: 350px;
+    width: 500px;
+    border: 3px solid white;
+ }
+}
+nav {
+  width: 100%;
+  height: 40px;
+  position: relative;
+}
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   position: fixed;
   top: 0;
-  right: 0;
-  width: 300px;
-  border: 3px solid white;
+  width: 100%;
+  height: auto;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 20px 16px;
+  text-decoration: none;
+}
+
+nav p {
+  float:right;
+  padding-right: 20px;
 }
 
  h2,a {
    color: white;
+   text-decoration: none;
  }

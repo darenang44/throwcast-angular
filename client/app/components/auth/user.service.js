@@ -19,6 +19,7 @@ angular.module('throwcast.auth')
         });
       }
     },
+    data: data,
     subscribe: function (stationId) {
       return $http.post('http://localhost:8888/api/users/subscriptions/', {stationId: stationId});
     },

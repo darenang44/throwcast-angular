@@ -5,9 +5,22 @@
     <link rel="stylesheet" type="text/css" href="style.css">
   </head>
   <body ng-app="throwcast">
-    <div class="nav" ng-controller="PlayerController">
-      <h1>throwCAST</h1>
-      <audio ng-show="podcast.podcastLink" id="audio" ng-src="{{podcast.podcastLink}}" controls autoplay></audio>
+    <div class="nav">
+      <nav ng-controller="NavController">
+        <ul>
+          <li><a href="/#/">throwCAST</a></li>
+          <li><a href="/#/podcast/">Podcast List</a></li>
+          <li><a href="/#/stations/">Stations</a></li>
+          <li><a href="/#/playlist/">All Playlist</a></li>
+          <li>
+            <audio ng-show="podcast.podcastLink" ng-controller="PlayerController" id="audio" ng-src="{{podcast.podcastLink}}" controls autoplay></audio>
+          </li>
+          <p ng-click="logout()">Logout</p>
+          <a href="/#/profile/">
+            <p ng-show="user.username">Welcome {{user.username}}!</p>
+          </a>
+        </ul>
+      </nav>
     </div>
     <div ng-view></div>
     <script src="/lib/jquery/dist/jquery.min.js"></script>
@@ -19,6 +32,7 @@
     <script src="/app/components/auth/auth.interceptor.service.js"></script>
     <script src="/app/components/auth/auth.service.js"></script>
     <script src="/app/components/auth/user.service.js"></script>
+    <script src="/app/components/nav/nav.controller.js"></script>
     <script src="/app/home/popular.js"></script>
     <script src="/app/home/popular.controller.js"></script>
     <script src="/app/podcast/podcast.js"></script>

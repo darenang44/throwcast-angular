@@ -14,7 +14,7 @@ angular.module('throwcast.popular')
  });
 
   StationsService.getStations().then(function () {
-    $scope.stations = StationsService.data.stations;
+    $scope.stations = StationsService.data.stations.data;
   });
 
   $scope.getStationPodcast = function (station, index) {

@@ -15,7 +15,7 @@
           <li>
             <audio ng-show="podcast.podcastLink" ng-controller="PlayerController" id="audio" ng-src="{{podcast.podcastLink}}" controls autoplay></audio>
           </li>
-          <p ng-click="logout()">Logout</p>
+          <p ng-show="user.username" ng-click="logout()">Logout</p>
           <a href="/#/profile/">
             <p ng-show="user.username">Welcome {{user.username}}!</p>
           </a>

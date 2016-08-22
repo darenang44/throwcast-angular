@@ -24,6 +24,8 @@ angular.module('throwcast.auth')
     },
     logout: function () {
       delete $window.localStorage.token;
+      $location.path('/signin');
+      $window.location.reload();
     },
     isAuth: function () {
       return !!$window.localStorage.token;

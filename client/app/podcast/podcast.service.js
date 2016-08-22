@@ -5,7 +5,7 @@ angular.module('throwcast.podcast')
   return {
     getAllPodcasts: function () {
       return $http.get('http://localhost:8888/api/podcasts/').then( function (res) {
-        data.podcasts = res.data.data;
+        data.podcasts = res.data;
       });
     },
     play: function (link) {

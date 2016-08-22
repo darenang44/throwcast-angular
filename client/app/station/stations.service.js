@@ -5,12 +5,12 @@ angular.module('throwcast.stations')
   return {
     getStations: function () {
       return $http.get('http://localhost:8888/api/stations/').then( function (res) {
-        data.stations = res.data.data;
+        data.stations = res;
       });
     },
     getStationPodcast: function (id) {
       return $http.get('http://localhost:8888/api/stations/' + id + '/podcasts/').then(function (stationPodcasts) {
-        data.selectedStationPodcasts = stationPodcasts.data;
+        data.selectedStationPodcasts = stationPodcasts;
       });
     },
     data: data

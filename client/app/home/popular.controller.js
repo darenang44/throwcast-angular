@@ -6,7 +6,7 @@ angular.module('throwcast.popular')
   $scope.podcastLink;
   $scope.stationPodcasts;
   $scope.stationPodcastButton = 'Show Station Podcasts';
-  //TODO: delete all reference to stations after mvp
+
   $scope.stations;
 
  PodcastService.getAllPodcasts().then(function () {
@@ -47,6 +47,13 @@ angular.module('throwcast.popular')
     selectedPlaylist.podcasts.push(podcast);
     PlaylistService.updatePlaylist(selectedPlaylist._id, selectedPlaylist).then(function () {
       $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
+    });
+  };
+
+  $scope.subscribe = function (stationId) {
+    $scope.user.subscriptions.push(stationId);
+    userService.updateSubscribtion($scope.user.subscriptions).then(function (res) {
+      $scope.user.subscriptions = userService.data.user.subscriptions;
     });
   };
 

@@ -19,5 +19,15 @@
     </div>
   <hr>
   <h1>Subcribed Stations</h1>
+  <div ng-repeat="station in user.subscriptions">
+    <ul>
+      <a href="/#/profile/{{station._id}}">
+        <img class="stationImg" src="{{station.image}}"/>
+      </a>
+      <li>Station: {{station.title}}</li>
+      <li>Description: {{station.description.short || station.description.long}}</li>
+    </ul>
+    <button ng-click="unsubscribe($index)">Unsubscribe</button>
+  </div>
   </div>
 </div>

@@ -19,10 +19,12 @@ angular.module('throwcast.auth')
         });
       }
     },
-    data: data,
-    subscribe: function (stationId) {
-      return $http.post('http://localhost:8888/api/users/subscriptions/', {stationId: stationId});
+    updateSubscribtion: function (subscriptions) {
+      return $http.put('http://localhost:8888/api/users/subscriptions/', subscriptions).then(function (res) {
+        data.user.subscriptions = res.data.subscriptions;
+      });
     },
+    data: data,
     addPodToPlaylist: function (playlistId, podcastId) {
       return $http.post('http://localhost:8888/api/playlists/' + playlistId + '/podcast/', {podcastId: podcastId});
     },

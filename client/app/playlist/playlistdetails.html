@@ -1,9 +1,9 @@
 <div>
   <div ng-repeat="podcast in playlist.podcasts">
     <ul>
-     <img class="stationImg" src="{{podcast.imageUrl}}"/>
+     <img class="stationImg" src="{{podcast.image}}"/>
      <li>Podcast Name: {{podcast.title}}</li>
-     <li>Created At: {{podcast.pubDate | date: 'mediumDate'}}</li>
+     <li>Created At: {{podcast.published | date: 'mediumDate'}}</li>
     </ul>
     <button ng-show="user._id === playlist.owner;" ng-click="deletePodcastFromPlaylist($index, playlist)">Delete</button>
   </div>

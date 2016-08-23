@@ -6,13 +6,12 @@
     <div class="stationsDiv" ng-repeat="station in stations">
       <p ng-show="message">{{message}}</p>
       <a href="/#/stations/{{station._id}}">
-        <img class="stationImg" src="{{station.imageUrl}}"/>
+        <img class="stationImg" src="{{station.image}}"/>
       </a>
       <ul>
         <li class="stationLi">Station: {{station.title}}</li>
-        <li class="stationLi">Description: {{station.description}}</li>
+        <li class="stationLi">Description: {{station.description.short || station.description.long}}</li>
       </ul>
-      <!--TODO: make sure you have the correct endpoint  -->
       <button ng-click="subscribe(stations[$index]._id)">Subscribe</button>
     </div>
   </div>

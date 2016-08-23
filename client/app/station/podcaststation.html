@@ -1,5 +1,4 @@
 <div>
-  <h2>{{station.title}}</h2>
   <hr>
   <div class="newDiv">
     <div class="podcastDiv" ng-repeat='podcast in allStationPodcasts'>
@@ -9,6 +8,13 @@
         <li>Description: {{podcast.description}}</li>
         <li>Release Date: {{podcast.pubDate | date: "mediumDate"}}</li>
       </ul>
+      <button ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
+      <select ng-show="selectedIndex === $index"
+              ng-options="playlist.title for playlist in userPlaylists"
+              ng-model="selectedPlaylist"
+              ng-change="addPodcastToPlaylist(podcast, selectedPlaylist)">
+      </select>
+      {{selectedPlaylist.podcasts}}
     </div>
   </div>
 </div>

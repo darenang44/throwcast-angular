@@ -4,10 +4,12 @@ angular.module('throwcast.playlist', ['ngRoute'])
   $routeProvider
   .when('/playlist/', {
     templateUrl: 'app/playlist/playlist.html',
-    controller: 'PlaylistController'
+    controller: 'PlaylistController',
+    authenticate: true
   })
   .when('/playlist/:id', {
-    templateUrl: 'app/playlist/playlist.html',
-    controller: 'PlaylistDetailController'
+    templateUrl: 'app/playlist/playlistdetails.html',
+    controller: 'PlaylistDetailController',
+    authenticate: true
   });
 });

@@ -3,7 +3,7 @@
   <div ng-repeat="playlist in allPlaylist">
     <ul>
       <a href="/#/playlist/{{playlist._id}}">
-        <li>Playlist Name: {{playlist.name}}</li>
+        <li>Playlist title: {{playlist.title}}</li>
       </a>
      <li>Created At: {{playlist.createdAt | date: 'mediumDate'}}</li>
     </ul>

@@ -1,6 +1,6 @@
 angular.module('throwcast.popular')
 
-.controller('PopularController', function ($scope, $http, PodcastService, StationsService) {
+.controller('PopularController', function ($scope, $http, PodcastService, StationsService, userService, PlaylistService) {
   $scope.h1 = 'Top Podcast';
   $scope.message;
   $scope.podcastLink;
@@ -24,6 +24,32 @@ angular.module('throwcast.popular')
     });
   };
 
+  userService.getUserAsync().then(function (user) {
+    $scope.user = user;
+  });
+
+  PlaylistService.getAllPlaylist().then(function (res) {
+    $scope.allPlaylist = PlaylistService.data.allPlaylist;
+  });
+
+  $scope.getUserPlaylist = function (user, playlist, index) {
+    $scope.userPlaylists = [];
+    angular.forEach(playlist, function (eachPlaylist) {
+      if (user._id === eachPlaylist.owner) {
+         $scope.userPlaylists.push(eachPlaylist);
+      }
+    });
+    $scope.selectedIndex = index;
+    return $scope.userPlaylists;
+  };
+
+  $scope.addPodcastToPlaylist = function (podcast, selectedPlaylist) {
+    selectedPlaylist.podcasts.push(podcast);
+    PlaylistService.updatePlaylist(selectedPlaylist._id, selectedPlaylist).then(function () {
+      $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
+    });
+  };
+  
   $scope.play = function (link) {
     $scope.podcastLink = PodcastService.play(link);
   };

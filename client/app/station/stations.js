@@ -4,11 +4,12 @@ angular.module('throwcast.stations', ['ngRoute'])
   $routeProvider
   .when('/stations', {
     templateUrl: 'app/station/stations.html',
-    controller: 'StationsController'
-    //TODO: need to set authenticate to true
+    controller: 'StationsController',
+    authenticate: true
   })
   .when('/stations/:id', {
     templateUrl: 'app/station/podcaststation.html',
-    controller: 'StationDetailController'
+    controller: 'StationDetailController',
+    authenticate: true
   });
 });

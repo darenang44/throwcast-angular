@@ -1,6 +1,6 @@
 angular.module('throwcast.stations')
 
-.controller('StationsController', function ($scope, StationsService, ProfileService, userService) {
+.controller('StationsController', function ($scope, StationsService, userService) {
   userService.getUserAsync().then(function (user) {
     $scope.user = user;
   });

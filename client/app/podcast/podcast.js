@@ -4,7 +4,7 @@ angular.module('throwcast.podcast', ['ngRoute'])
   $routeProvider
   .when('/podcast', {
       templateUrl: 'app/podcast/podcast.html',
-      controller: 'PodcastController'
-      //TODO: need to set authenticate to true
+      controller: 'PodcastController',
+      authenticate: true
   });
 });

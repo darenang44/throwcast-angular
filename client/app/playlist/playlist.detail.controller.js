@@ -1,11 +1,15 @@
 angular.module('throwcast.playlist')
 
-.controller('PlaylistDetailController', function ($scope, $http, PlaylistService, $routeParams) {
+.controller('PlaylistDetailController', function ($scope, $http, PlaylistService, $routeParams, userService, UserPlaylistService) {
+  userService.getUserAsync().then(function (user) {
+    $scope.user = user;
+  });
 
-  $scope.getSpecificPlaylist = function (id) {
-    PlaylistService.getSpecificPlaylist(id).then(function () {
-      $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
-    });
-  };
-   $scope.getSpecificPlaylist($routeParams.id);
+  PlaylistService.getSpecificPlaylist($routeParams.id).then(function () {
+    $scope.playlist = PlaylistService.data.specificPlaylist;
+  });
+
+   $scope.deletePodcastFromPlaylist = function (index, playlist) {
+     UserPlaylistService.deletePodcastFromPlaylist(index, playlist);
+   };
 });

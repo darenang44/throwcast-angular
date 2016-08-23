@@ -4,14 +4,14 @@
   <hr>
   <h1>{{user.username}}</h1>
   <div>
-		Playlist Name: <input type="text" ng-model="playlistName">
-    <button ng-click="createPlaylist(playlistName, user._id)">Create Playlist</button>
+		Playlist Name: <input type="text" ng-model="playlist.title">
+    <button ng-click="createPlaylist()">Create Playlist</button>
   <hr>
   <h1>My Playlists</h1>
-    <div ng-repeat="playlist in allPlaylist">
+    <div ng-repeat="playlist in data.allPlaylist">
       <ul>
         <a href="/#/playlist/{{playlist._id}}">
-          <li>Playlist Name: {{playlist.name}}</li>
+          <li>Playlist Title: {{playlist.title}}</li>
         </a>
        <li>Created At: {{playlist.createdAt | date: 'mediumDate'}}</li>
       </ul>

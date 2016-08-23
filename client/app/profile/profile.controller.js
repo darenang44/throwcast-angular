@@ -1,26 +1,26 @@
 angular.module('throwcast.profile')
 
-.controller('ProfileController', function ($scope, $http, ProfileService, userService, PlaylistService) {
+.controller('ProfileController', function ($scope, $http, UserPlaylistService, userService, PlaylistService) {
+  $scope.data = PlaylistService.data;
+  $scope.playlist = {};
+
   userService.getUserAsync().then(function (user) {
     $scope.user = user;
   });
-  PlaylistService.getAllPlaylist().then(function (res) {
-    $scope.allPlaylist = PlaylistService.data.allPlaylist;
-  });
+  PlaylistService.getAllPlaylist();
+
   $scope.getSpecificPlaylist = function (playlistId) {
     PlaylistService.getSpecificPlaylist(playlistId).then(function () {
       $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
     });
   };
-  $scope.createPlaylist = function (name, owner) {
-    ProfileService.createPlaylist(name, owner).then(function () {
-      ProfileService.getAllPlaylist();
-    });
+
+  $scope.createPlaylist = function () {
+    UserPlaylistService.createPlaylist($scope.playlist);
   };
+
   $scope.deletePlaylist = function (playlistId) {
-    ProfileService.deletePlaylist(playlistId).then(function (res) {
-    });
-    ProfileService.getAllPlaylist();
+    UserPlaylistService.deletePlaylist(playlistId);
   };
 
   $scope.unsubscribe = function (userId, stationId) {
@@ -31,11 +31,11 @@ angular.module('throwcast.profile')
   };
   // TODO: the bottom 2 shoud probably be on the podcast controller
   $scope.addPodToPlaylist = function (playlistId, podcastId) {
-    ProfileService.addPodToPlaylist(playlistId, podcastId).then(function () {
+    UserPlaylistService.addPodToPlaylist(playlistId, podcastId).then(function () {
       $scope.getSpecificPlaylist(playlistId);
     });
     $scope.deletePodFromPlaylist = function (playlistId, podcastId) {
-      ProfileService.deletePodFromPlaylist(playlistId, podcastId).then(function () {
+      UserPlaylistService.deletePodFromPlaylist(playlistId, podcastId).then(function () {
         $scope.getSpecificPlaylist(playlistId);
       });
     };

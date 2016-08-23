@@ -11,6 +11,13 @@
         <p ng-show="message">{{message}}</p>
       </ul>
       <!-- TODO: create button for addToQueue and addPodToPlaylist -->
+      <button ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
+      <select ng-show="selectedIndex === $index"
+              ng-options="playlist.title for playlist in userPlaylists"
+              ng-model="selectedPlaylist"
+              ng-change="addPodcastToPlaylist(podcast, selectedPlaylist)">
+      </select>
+      {{selectedPlaylist.podcasts}}
     </div>
   </div>
 </div>

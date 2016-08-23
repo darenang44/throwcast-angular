@@ -49,7 +49,7 @@ angular.module('throwcast.popular')
       $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
     });
   };
-  
+
   $scope.play = function (link) {
     $scope.podcastLink = PodcastService.play(link);
   };

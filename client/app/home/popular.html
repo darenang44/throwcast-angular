@@ -33,7 +33,9 @@
       <ul>
         <li class="stationLi">Station: {{station.title}}</li>
         <li class="stationLi">Description: {{station.description.short || station.description.long}}</li>
+        {{message}}
       </ul>
+      <button ng-click="subscribe(stations[$index]._id)">Subscribe</button>
     </div>
   </div>
 </div>

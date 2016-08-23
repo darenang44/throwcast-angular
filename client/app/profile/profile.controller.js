@@ -6,6 +6,7 @@ angular.module('throwcast.profile')
 
   userService.getUserAsync().then(function (user) {
     $scope.user = user;
+    console.log($scope.user);
   });
   PlaylistService.getAllPlaylist();
 
@@ -23,12 +24,14 @@ angular.module('throwcast.profile')
     UserPlaylistService.deletePlaylist(playlistId);
   };
 
-  $scope.unsubscribe = function (userId, stationId) {
-    $http.delete('http://localhost:8888/api/user/' + userId + '/subscriptions/', {stationId: stationId}).then(function (res) {
-      $scope.message = 'Unsubscribed to ' + res.data.name + '.';
-      $scope.getStations();
+  $scope.unsubscribe = function (index) {
+    $scope.user.subscriptions.splice(index, 1);
+    userService.updateSubscribtion($scope.user.subscriptions).then(function () {
+      $scope.user.subscriptions = userService.data.user.subscriptions;
     });
   };
+
+
   // TODO: the bottom 2 shoud probably be on the podcast controller
   $scope.addPodToPlaylist = function (playlistId, podcastId) {
     UserPlaylistService.addPodToPlaylist(playlistId, podcastId).then(function () {

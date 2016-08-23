@@ -13,9 +13,10 @@ angular.module('throwcast.stations')
       $scope.selected = StationsService.data.selected;
     });
   };
-  $scope.subscribe = function (userId, stationId) {
-    userService.subscribe(userId, stationId).then(function () {
-      $scope.message = 'Subscribed to ' + res.data.name + '.';
+  $scope.subscribe = function (stationId) {
+    $scope.user.subscriptions.push(stationId);
+    userService.updateSubscribtion($scope.user.subscriptions).then(function (res) {
+      $scope.user.subscriptions = userService.data.user.subscriptions;
     });
   };
 });

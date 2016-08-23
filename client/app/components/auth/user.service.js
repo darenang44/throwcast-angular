@@ -25,14 +25,5 @@ angular.module('throwcast.auth')
       });
     },
     data: data,
-    addPodToPlaylist: function (playlistId, podcastId) {
-      return $http.post('http://localhost:8888/api/playlists/' + playlistId + '/podcast/', {podcastId: podcastId});
-    },
-    deletePodFromPlaylist: function (playlistId, podcastId) {
-      return $http.delete('http://localhost:8888/api/playlists/' + playlistId + '/podcast/' + podcastId);
-    },
-    unsubscribe: function (userId, stationId) {
-      return $http.delete('http://localhost:8888/api/users/' + userId + '/subscriptions/', {stationId: stationId});
-    },
   };
 });

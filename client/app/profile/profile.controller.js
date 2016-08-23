@@ -6,7 +6,6 @@ angular.module('throwcast.profile')
 
   userService.getUserAsync().then(function (user) {
     $scope.user = user;
-    console.log($scope.user);
   });
   PlaylistService.getAllPlaylist();
 
@@ -29,18 +28,5 @@ angular.module('throwcast.profile')
     userService.updateSubscribtion($scope.user.subscriptions).then(function () {
       $scope.user.subscriptions = userService.data.user.subscriptions;
     });
-  };
-
-
-  // TODO: the bottom 2 shoud probably be on the podcast controller
-  $scope.addPodToPlaylist = function (playlistId, podcastId) {
-    UserPlaylistService.addPodToPlaylist(playlistId, podcastId).then(function () {
-      $scope.getSpecificPlaylist(playlistId);
-    });
-    $scope.deletePodFromPlaylist = function (playlistId, podcastId) {
-      UserPlaylistService.deletePodFromPlaylist(playlistId, podcastId).then(function () {
-        $scope.getSpecificPlaylist(playlistId);
-      });
-    };
   };
 });

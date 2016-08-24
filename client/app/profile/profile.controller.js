@@ -1,6 +1,7 @@
 angular.module('throwcast.profile')
 
 .controller('ProfileController', function ($scope, $http, UserPlaylistService, userService, PlaylistService) {
+  $scope.defaultImage = 'http://myndset.com/wp-content/uploads/2015/10/podcast-image.jpg';
   $scope.data = PlaylistService.data;
   $scope.playlist = {};
 

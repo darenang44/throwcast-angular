@@ -1,6 +1,7 @@
 angular.module('throwcast.stations')
 
 .controller('StationsController', function ($scope, StationsService, userService) {
+  $scope.defaultImage = 'http://myndset.com/wp-content/uploads/2015/10/podcast-image.jpg';
   userService.getUserAsync().then(function (user) {
     $scope.user = user;
   });

@@ -8,8 +8,8 @@ angular.module('throwcast.podcast')
         data.podcasts = res.data;
       });
     },
-    play: function (link) {
-      return data.podcastLink = link;
+    play: function (podcast) {
+      return data.selected = podcast;
     },
     data: data
   };

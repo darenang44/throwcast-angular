@@ -1,11 +1,11 @@
-<div style="text-align:center;">
+<div class="views">
   <hr>
-  <div class="newDiv">
-    <div style="display:inline-block;width:300px;position:relative;" class="podcastDiv" ng-repeat='podcast in allStationPodcasts'>
-      <img style="display:block;margin:auto;" class="img-thumbnail" width="250" height="200" class="podcastImg" ng-src="{{podcast.image || defaultImage}}"/>
+  <div>
+    <div class="mainDiv" ng-repeat='podcast in allStationPodcasts'>
+      <img class="img-thumbnail" ng-src="{{podcast.image || defaultImage}}"/>
       <ul class="list-group">
-        <li class="list-group-item" class="link" ng-click="play(podcast.enclosure.url)"><strong>Title:</strong> <u>{{podcast.title}}</u></li>
-        <li class="list-group-item"><strong>Description:</strong> {{podcast.description || podcast.title}}</li>
+        <li class="list-group-item title" ng-click="play(podcast)"><strong>Title:</strong> <u>{{podcast.title}}</u></li>
+        <li class="list-group-item description"><strong>Description:</strong> {{podcast.description || podcast.title}}</li>
         <li class="list-group-item"><strong>Release Date:</strong> {{podcast.published | date: "mediumDate"}}</li>
       </ul>
       <button class='btn btn-primary' ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>

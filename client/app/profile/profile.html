@@ -1,4 +1,4 @@
-<div style="text-align:center;">
+<div class="views">
   <hr>
   <h1>My Profile</h1>
   <hr>
@@ -11,24 +11,25 @@
     <button class='btn btn-primary' ng-click="createPlaylist()">Create Playlist</button>
   <hr>
   <h1>My Playlists</h1>
-    <div style="display:inline-block;width:300px;position:relative;" ng-repeat="playlist in data.allPlaylist">
+    <div class="mainDiv" ng-repeat="playlist in data.allPlaylist | filter:{owner: user._id}">
       <ul class="list-group">
         <a href="/#/playlist/{{playlist._id}}">
           <li class="list-group-item"><strong>Playlist Title:</strong> <u>{{playlist.title}}</u></li>
         </a>
        <li class="list-group-item"><strong>Created At:</strong> {{playlist.createdAt | date: 'mediumDate'}}</li>
       </ul>
-      <button class='btn btn-primary' ng-click="deletePlaylist(allPlaylist[$index]._id)">Delete Playlist</button>
+      {{data.allPlaylist[$index]._id}}
+      <button class='btn btn-primary' ng-click="deletePlaylist(data.allPlaylist[$index]._id)">Delete Playlist</button>
     </div>
   <hr>
   <h1>Subcribed Stations</h1>
-  <div style="display:inline-block;width:300px;position:relative;" ng-repeat="station in user.subscriptions">
+  <div class="mainDiv" ng-repeat="station in user.subscriptions">
     <ul class="list-group">
       <a href="/#/profile/{{station._id}}">
-        <img style="display:block;margin:auto;" class="img-thumbnail" width="250" height="200" class="stationImg" ng-src="{{station.image || defaultImage}}"/>
+        <img class="img-thumbnail" ng-src="{{station.image || defaultImage}}"/>
       </a>
       <li class="list-group-item"><strong>Station:</strong> {{station.title}}</li>
-      <li class="list-group-item"><strong>Description:</strong> {{station.description.short || station.description.long}}</li>
+      <li class="list-group-item description"><strong>Description:</strong> {{station.description.short || station.description.long}}</li>
     </ul>
     <button class='btn btn-primary' ng-click="unsubscribe($index)">Unsubscribe</button>
   </div>

@@ -1,124 +1,76 @@
+/*BODY*/
+
 body {
-  background: black;
-  color: white;
-  font-style: oblique;
+  background: silver;
+  position:relative;
 }
 
-.mainDiv {
-  width: auto;
-  height:230px;
-  border:1px solid white;
-  overflow-x:scroll;
-  overflow-y: hidden;
-  overflow:auto;
-  white-space: nowrap;
-  background-color: rgba(0, 0, 0, 0.7);
-}
+/*NAVIGATION*/
 
-.stationsDiv {
-  display: inline-block;
-  vertical-align: middle;
-  border-right-style: solid;
-  border-color: white;
-  padding-top: 10px;
-  padding-right: 10px;
-}
-
-.newDiv {
-  width: auto;
-  height:240px;
-  border:1px solid white;
-  overflow-x:scroll;
-  overflow-y: hidden;
-  overflow:auto;
-  white-space: nowrap;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.podcastDiv {
-  display: inline-block;
-  vertical-align: middle;
-  border-right-style: solid;
-  border-color: white;
-  padding-top: 10px;
-  padding-right: 10px;
-}
-
-.stationImg {
-  display: block;
-  margin: auto;
-  height: 150px;
-  width: 150px;
-}
-
-.podcastImg {
-  display: block;
-  margin: auto;
-  height: 150px;
-  width: 150px;
-}
-
-.link {
-  text-decoration: underline;
-}
-
-.authDiv {
-  margin: auto;
-  position: absolute;
-  height: 300px;
-  width: 700px;
-  border:1px solid white;
-  top: 0%;
-  left: 0%;
-  bottom: 0;
-  right: 0;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-(max-width: 500px) {
-  #audio {
-    top: 10px;
-    right: 350px;
-    width: 500px;
-    border: 3px solid white;
- }
-}
-nav {
-  width: 100%;
-  height: 40px;
-  position: relative;
-  background-color: blue;
-  position: fixed;
-}
-nav ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  height: auto;
-}
-
-nav li {
-  float: left;
-}
-
-nav li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 20px 16px;
-  text-decoration: none;
-}
-
-nav p {
+.logout {
   float:right;
-  padding-right: 20px;
 }
 
- h2,a {
-   color: white;
-   text-decoration: none;
+.user {
+  float:right;
+}
+
+/*VIEWS*/
+
+ .views {
+   text-align: center;
  }
+
+ .mainDiv {
+   display: inline-block;
+   width: 300px;
+ }
+
+ img {
+   top: 0px;
+   display:block;
+   margin:auto;
+   width: 200px;
+   height: 150px;
+ }
+
+ img,.facebookauth {
+   width: 250px;
+   height: 50px;
+ }
+
+ .description {
+   height:125px;
+   overflow-y: scroll;
+ }
+
+ .title {
+   height:80px;
+   overflow-y: scroll;
+   text-align: center;
+ }
+
+/*AUDIO PLAYER*/
+
+.audioplayer {
+  position: fixed;
+  bottom: 0;
+  height: 32px;
+  width: 100%;
+  background: black;
+  z-index: 1000;
+}
+
+.podcasttitle {
+  text-align: center;
+  float:left;
+  color: white;
+  width: 60%;
+  padding: 6px;
+}
+
+ #audio {
+   float: right;
+   display: block;
+   width: 40%;
+}

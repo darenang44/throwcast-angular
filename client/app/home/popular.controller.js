@@ -1,6 +1,7 @@
 angular.module('throwcast.popular')
 
 .controller('PopularController', function ($scope, $http, PodcastService, StationsService, userService, PlaylistService) {
+  $scope.defaultImage = 'http://myndset.com/wp-content/uploads/2015/10/podcast-image.jpg';
   $scope.h1 = 'Top Podcast';
   $scope.message;
   $scope.podcastLink;

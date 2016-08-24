@@ -1,11 +1,11 @@
-<div>
+<div style="text-align:center;">
   <h1>Playlist</h1>
-  <div ng-repeat="playlist in allPlaylist">
-    <ul>
+  <div style="display:inline-block;width:300px;position:relative;"ng-repeat="playlist in allPlaylist">
+    <ul class="list-group">
       <a href="/#/playlist/{{playlist._id}}">
-        <li>Playlist title: {{playlist.title}}</li>
+        <li class="list-group-item"><strong>Playlist Title:</strong> <u>{{playlist.title}}</u></li>
       </a>
-     <li>Created At: {{playlist.createdAt | date: 'mediumDate'}}</li>
+     <li class="list-group-item"><strong>Created At:</strong> {{playlist.createdAt | date: 'mediumDate'}}</li>
     </ul>
   </div>
 </div>

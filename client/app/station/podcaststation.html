@@ -1,14 +1,14 @@
-<div>
+<div style="text-align:center;">
   <hr>
   <div class="newDiv">
-    <div class="podcastDiv" ng-repeat='podcast in allStationPodcasts'>
-      <img class="podcastImg" src="{{podcast.image}}"/>
-      <ul>
-        <li class="link" ng-click="play(podcast.enclosure.url)">Title: {{podcast.title}}</li>
-        <li>Description: {{podcast.description}}</li>
-        <li>Release Date: {{podcast.published | date: "mediumDate"}}</li>
+    <div style="display:inline-block;width:300px;position:relative;" class="podcastDiv" ng-repeat='podcast in allStationPodcasts'>
+      <img style="display:block;margin:auto;" class="img-thumbnail" width="250" height="200" class="podcastImg" ng-src="{{podcast.image || defaultImage}}"/>
+      <ul class="list-group">
+        <li class="list-group-item" class="link" ng-click="play(podcast.enclosure.url)"><strong>Title:</strong> <u>{{podcast.title}}</u></li>
+        <li class="list-group-item"><strong>Description:</strong> {{podcast.description || podcast.title}}</li>
+        <li class="list-group-item"><strong>Release Date:</strong> {{podcast.published | date: "mediumDate"}}</li>
       </ul>
-      <button ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
+      <button class='btn btn-primary' ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
       <select ng-show="selectedIndex === $index"
               ng-options="playlist.title for playlist in userPlaylists"
               ng-model="selectedPlaylist"

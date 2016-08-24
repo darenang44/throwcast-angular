@@ -1,18 +1,18 @@
-<div>
+<div style="text-align:center;">
   <hr>
   <h2>Stations</h2>
   <hr>
   <div class="mainDiv">
-    <div class="stationsDiv" ng-repeat="station in stations">
+    <div style="display:inline-block;width:300px;position:relative;" class="stationsDiv" ng-repeat="station in stations">
       <p ng-show="message">{{message}}</p>
       <a href="/#/stations/{{station._id}}">
-        <img class="stationImg" src="{{station.image}}"/>
+        <img style="display:block;margin:auto;" class="img-thumbnail" width="250" height="200" class="stationImg" ng-src="{{station.image || defaultImage}}"/>
       </a>
-      <ul>
-        <li class="stationLi">Station: {{station.title}}</li>
-        <li class="stationLi">Description: {{station.description.short || station.description.long}}</li>
+      <ul class="list-group">
+        <li class="stationLi" class="list-group-item"><strong>Station:</strong> {{station.title}}</li>
+        <li class="stationLi" class="list-group-item"><strong>Description:</strong> {{station.description.short || station.description.long || podcast.title}}</li>
       </ul>
-      <button ng-click="subscribe(stations[$index]._id)">Subscribe</button>
+      <button class='btn btn-primary' ng-click="subscribe(stations[$index]._id)">Subscribe</button>
     </div>
   </div>
 </div>

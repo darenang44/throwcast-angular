@@ -1,8 +1,8 @@
-<div style="text-align:center;">
-  <div style="display:inline-block;width:300px;position:relative;" ng-repeat="podcast in playlist.podcasts">
+<div class="views">
+  <div class="mainDiv" ng-repeat="podcast in playlist.podcasts">
     <ul class="list-group">
-     <img style="display:block;margin:auto;" class="img-thumbnail" width="250" height="200" class="stationImg" ng-src="{{podcast.image}}"/>
-     <li ng-click="play(podcast.enclosure.url)" class="list-group-item"><strong>Podcast Name:</strong> <u>{{podcast.title}}</u></li>
+     <img class="img-thumbnail" ng-src="{{podcast.image}}"/>
+     <li ng-click="play(podcast)" class="list-group-item title"><strong>Podcast Name:</strong> <u>{{podcast.title}}</u></li>
      <li class="list-group-item"><strong>Created At:</strong> {{podcast.published | date: 'mediumDate'}}</li>
     </ul>
     <button class='btn btn-primary' ng-show="user._id === playlist.owner;" ng-click="deletePodcastFromPlaylist($index, playlist)">Delete</button>

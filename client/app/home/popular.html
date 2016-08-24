@@ -1,16 +1,16 @@
-<div style="text-align:center;">
+<div class="views">
   <hr>
   <h2>Popular Podcast</h2>
   <hr>
-  <div class="mainDiv">
-    <div style="display:inline-block;width:300px;position:relative;" class="podcastDiv" ng-repeat="podcast in podcasts.slice(0,10) track by $index">
-      <img style="display:block;margin:auto;" class="img-thumbnail" width="250" height="200" class="podcastImg" ng-src="{{podcast.image || defaultImage}}"/>
+  <div>
+    <div class="mainDiv" ng-repeat="podcast in podcasts.slice(0,10) track by $index">
+      <img class="img-thumbnail" ng-src="{{podcast.image || defaultImage}}"/>
       <ul class="list-group">
-        <li class="list-group-item" class="link" ng-click="play(podcast.enclosure.url)"><strong>Title:</strong> <u>{{podcast.title}}</u></li>
-        <li class="list-group-item"><strong>Description:</strong> {{podcast.description}}</li>
+        <li class="list-group-item title" ng-click="play(podcast)"><strong>Title:</strong> <u>{{podcast.title}}</u></li>
+        <li class="list-group-item description"><strong>Description:</strong> {{podcast.description}}</li>
         <li class="list-group-item"><strong>Release Date:</strong> {{podcast.published | date: "mediumDate"}}</li>
       </ul>
-      <button style="display:block;margin:auto;" class='btn btn-primary' ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
+      <button class='btn btn-primary' ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
       <select class="form-control"
               ng-show="selectedIndex === $index"
               ng-options="playlist.title for playlist in userPlaylists"
@@ -24,15 +24,15 @@
     <h2>Stations</h2>
   </a>
   <hr>
-  <div class="mainDiv">
-    <div style="display:inline-block;width:300px;position:relative;"class="stationsDiv" ng-repeat="station in stations">
+  <div>
+    <div class="mainDiv" ng-repeat="station in stations">
       <p ng-show="message">{{message}}</p>
       <a href="/#/stations/{{station._id}}">
-        <img style="display:block;margin:auto;" class="img-thumbnail" width="250" height="200" class="stationImg" ng-src="{{station.image || defaultImage}}"/>
+        <img class="img-thumbnail" ng-src="{{station.image || defaultImage}}"/>
       </a>
       <ul class="list-group">
-        <li class="list-group-item" class="stationLi"><strong>Station:</strong> {{station.title}}</li>
-        <li class="list-group-item" class="stationLi"><strong>Description:</strong> {{station.description.short || station.description.long}}</li>
+        <li class="list-group-item title"><strong>Station:</strong> {{station.title}}</li>
+        <li class="list-group-item description"><strong>Description:</strong> {{station.description.short || station.description.long}}</li>
       </ul>
       <button class='btn btn-primary' ng-click="subscribe(stations[$index]._id)">Subscribe</button>
     </div>

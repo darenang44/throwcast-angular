@@ -1,23 +1,25 @@
-<div style="text-align:center;"class="authDiv">
+<div class="views">
+  <hr>
   <h1>Sign In</h1>
+  <hr>
     Username:
     <br>
-    <input class="form-group" class="col-xs-4" class="form-control" type="text" ng-model="userCredentials.username">
+    <input class="form-group" class="col-xs-4" type="text" ng-model="userCredentials.username">
     <br>
     Password:
     <br>
-    <input class="form-group" class="col-xs-4" class="form-control" type="text" ng-model="userCredentials.password">
+    <input class="form-group" class="col-xs-4" type="text" ng-model="userCredentials.password">
     <br>
     <button class='btn btn-primary' ng-click="signIn()">Sign In</button>
     <br>
     <button>
       <a href="/auth/facebook">
-        <img src="http://i.stack.imgur.com/Vk9SO.png"/>
+        <img class="facebookauth" ng-src="http://i.stack.imgur.com/Vk9SO.png"/>
       </a>
     </button>
     <button>
       <a href="/auth/facebook">
-        <img src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"/>
+        <img class="facebookauth" ng-src="https://developers.google.com/identity/images/btn_google_signin_dark_normal_web.png"/>
       </a>
     </button>
     <br>

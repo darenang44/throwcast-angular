@@ -1,0 +1,56 @@
+<div class="views">
+  <h3 ng-show="data.foundPodcasts.length === 0 && data.foundStations.length === 0 && data.foundPlaylists.length === 0">No results found \_(ツ)_/¯...</h3>
+  <div ng-show="data.foundPodcasts.length > 0">
+    <hr>
+    <h2>Podcast Results</h2>
+    <hr>
+    <div>
+      <div class="mainDiv" ng-repeat="podcast in data.foundPodcasts">
+        <img class="img-thumbnail" ng-src="{{podcast.image || defaultImage}}"/>
+        <ul class="list-group">
+          <li class="list-group-item title" ng-click="play(podcast)"><strong>Title:</strong> <u>{{podcast.title}}</u></li>
+          <li class="list-group-item description"><strong>Description:</strong> {{podcast.description}}</li>
+          <li class="list-group-item"><strong>Release Date:</strong> {{podcast.published | date: "mediumDate"}}</li>
+        </ul>
+        <button class='btn btn-primary' ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
+        <select class="form-control"
+                ng-show="selectedIndex === $index"
+                ng-options="playlist.title for playlist in userPlaylists"
+                ng-model="selectedPlaylist"
+                ng-change="addPodcastToPlaylist(podcast, selectedPlaylist)">
+        </select>
+        <p ng-show="selectedIndex === $index">{{message}}</p>
+      </div>
+    </div>
+  </div>
+  <div ng-show="data.foundStations.length > 0">
+    <hr>
+      <h2>Stations Results</h2>
+    <hr>
+    <div>
+      <div class="mainDiv" ng-repeat="station in data.foundStations">
+        <a href="/#/stations/{{station._id}}">
+          <img class="img-thumbnail" ng-src="{{station.image || defaultImage}}"/>
+        </a>
+        <ul class="list-group">
+          <li class="list-group-item title"><strong>Station:</strong> {{station.title}}</li>
+          <li class="list-group-item description"><strong>Description:</strong> {{station.description.short || station.description.long}}</li>
+        </ul>
+        <button class='btn btn-primary' ng-click="subscribe(stations[$index]._id)">Subscribe</button>
+      </div>
+    </div>
+  </div>
+  <div ng-show="data.foundPlaylists.length > 0">
+    <hr>
+    <h1>Playlist Results</h1>
+    <hr>
+    <div class="mainDiv" ng-repeat="playlist in data.foundPlaylists">
+      <ul class="list-group">
+        <a href="/#/playlist/{{playlist._id}}">
+          <li class="list-group-item"><strong>Playlist Title:</strong> <u>{{playlist.title}}</u></li>
+        </a>
+       <li class="list-group-item"><strong>Created At:</strong> {{playlist.createdAt | date: 'mediumDate'}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

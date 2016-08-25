@@ -29,6 +29,7 @@ angular.module('throwcast.podcast')
     selectedPlaylist.podcasts.push(podcast);
     PlaylistService.updatePlaylist(selectedPlaylist._id, selectedPlaylist).then(function () {
       $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
+      $scope.message = "Added " + podcast.title + ' to ' + $scope.specificPlaylist.title + ".";
     });
   };
 

@@ -16,6 +16,7 @@
           <li><a href="/#/playlist/">All Playlist</a></li>
           <li class="logout" ng-show="user.username" ng-click="logout()"><a href="/#/signin/">Logout</a></li>
           <li class="user"><a href="/#/profile/"><p ng-show="user.username">Welcome {{user.username}}!</p></a></li>
+          <li class="search"><input type="text" placeholder="search" ng-model="searchQuery"> <button class="btn btn-primary" ng-click="getSearchResults(searchQuery)">Search</button></li>
         </ul>
       </div>
     </nav>
@@ -34,6 +35,9 @@
     <script src="/app/components/auth/auth.service.js"></script>
     <script src="/app/components/auth/user.service.js"></script>
     <script src="/app/components/nav/nav.controller.js"></script>
+    <script src="/app/search/search.js"></script>
+    <script src="/app/search/search.service.js"></script>
+    <script src="/app/search/search.controller.js"></script>
     <script src="/app/home/popular.js"></script>
     <script src="/app/home/popular.controller.js"></script>
     <script src="/app/podcast/podcast.js"></script>

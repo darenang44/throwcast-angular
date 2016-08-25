@@ -4,7 +4,7 @@ angular.module('throwcast.stations')
   $scope.defaultImage = 'http://myndset.com/wp-content/uploads/2015/10/podcast-image.jpg';
   $scope.getStationPodcastsById = function (id) {
     StationsService.getStationPodcast(id).then(function () {
-      $scope.allStationPodcasts = StationsService.data.selectedStationPodcasts.data;
+      $scope.allStationPodcasts = StationsService.data.selectedStationPodcasts;
     });
   };
    $scope.getStationPodcastsById($routeParams.id);
@@ -32,6 +32,7 @@ angular.module('throwcast.stations')
      selectedPlaylist.podcasts.push(podcast);
      PlaylistService.updatePlaylist(selectedPlaylist._id, selectedPlaylist).then(function () {
        $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
+       $scope.message = "Added " + podcast.title + ' to ' + $scope.specificPlaylist.title + ".";
      });
    };
 

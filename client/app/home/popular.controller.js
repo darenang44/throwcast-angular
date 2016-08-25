@@ -48,14 +48,19 @@ angular.module('throwcast.popular')
     selectedPlaylist.podcasts.push(podcast);
     PlaylistService.updatePlaylist(selectedPlaylist._id, selectedPlaylist).then(function () {
       $scope.specificPlaylist = PlaylistService.data.specificPlaylist;
+      $scope.message = "Added " + podcast.title + ' to ' + $scope.specificPlaylist.title + ".";
     });
   };
 
-  $scope.subscribe = function (stationId) {
+  $scope.subscribe = function (stationId, index) {
     $scope.user.subscriptions.push(stationId);
     userService.updateSubscribtion($scope.user.subscriptions).then(function (res) {
       $scope.user.subscriptions = userService.data.user.subscriptions;
+      console.log($scope.user.subscriptions);
+      $scope.subMessage = "Subcribed to " + $scope.user.subscriptions[$scope.user.subscriptions.length -1].title +'.';
+      console.log($scope.subMessage);
     });
+    $scope.selIndex = index;
   };
 
   $scope.play = function (link) {

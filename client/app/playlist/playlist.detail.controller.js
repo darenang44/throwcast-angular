@@ -8,7 +8,6 @@ angular.module('throwcast.playlist')
   PlaylistService.getSpecificPlaylist($routeParams.id).then(function () {
     $scope.playlist = PlaylistService.data.specificPlaylist;
   });
-
    $scope.deletePodcastFromPlaylist = function (index, playlist) {
      UserPlaylistService.deletePodcastFromPlaylist(index, playlist);
    };

@@ -9,6 +9,7 @@ angular.module('throwcast', [
   'throwcast.player',
   'throwcast.playlist',
   'throwcast.nav',
+  'throwcast.search',
   'ngRoute'
 ])
 

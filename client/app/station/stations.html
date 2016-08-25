@@ -12,7 +12,8 @@
         <li class="list-group-item title"><strong>Station:</strong> {{station.title}}</li>
         <li class="list-group-item description"><strong>Description:</strong> {{station.description.short || station.description.long || podcast.title}}</li>
       </ul>
-      <button class='btn btn-primary' ng-click="subscribe(stations[$index]._id)">Subscribe</button>
+      <button class='btn btn-primary' ng-click="subscribe(stations[$index]._id, $index)">Subscribe</button>
+      <p ng-show="selIndex === $index">{{subMessage}}</p>
     </div>
   </div>
 </div>

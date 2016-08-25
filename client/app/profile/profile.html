@@ -27,7 +27,7 @@
       <a href="/#/profile/{{station._id}}">
         <img class="img-thumbnail" ng-src="{{station.image || defaultImage}}"/>
       </a>
-      <li class="list-group-item"><strong>Station:</strong> {{station.title}}</li>
+      <li class="list-group-item title"><strong>Station:</strong> {{station.title}}</li>
       <li class="list-group-item description"><strong>Description:</strong> {{station.description.short || station.description.long}}</li>
     </ul>
     <button class='btn btn-primary' ng-click="unsubscribe($index)">Unsubscribe</button>

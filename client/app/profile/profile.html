@@ -11,15 +11,14 @@
     <button class='btn btn-primary' ng-click="createPlaylist()">Create Playlist</button>
   <hr>
   <h1>My Playlists</h1>
-    <div class="mainDiv" ng-repeat="playlist in data.allPlaylist | filter:{owner: user._id}">
+    <div class="mainDiv" ng-repeat="playlist in UserPlaylistService.usersPlaylist">
       <ul class="list-group">
         <a href="/#/playlist/{{playlist._id}}">
           <li class="list-group-item"><strong>Playlist Title:</strong> <u>{{playlist.title}}</u></li>
         </a>
        <li class="list-group-item"><strong>Created At:</strong> {{playlist.createdAt | date: 'mediumDate'}}</li>
       </ul>
-      {{data.allPlaylist[$index]._id}}
-      <button class='btn btn-primary' ng-click="deletePlaylist(data.allPlaylist[$index]._id)">Delete Playlist</button>
+      <button class='btn btn-primary' ng-click="deletePlaylist($index, UserPlaylistService.usersPlaylist[$index]._id)">Delete Playlist</button>
     </div>
   <hr>
   <h1>Subcribed Stations</h1>

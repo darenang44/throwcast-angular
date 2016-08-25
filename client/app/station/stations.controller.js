@@ -14,10 +14,12 @@ angular.module('throwcast.stations')
       $scope.selected = StationsService.data.selected;
     });
   };
-  $scope.subscribe = function (stationId) {
+  $scope.subscribe = function (stationId, index) {
     $scope.user.subscriptions.push(stationId);
     userService.updateSubscribtion($scope.user.subscriptions).then(function (res) {
       $scope.user.subscriptions = userService.data.user.subscriptions;
+      $scope.subMessage = "Subcribed to " + $scope.user.subscriptions[$scope.user.subscriptions.length -1].title +'.';
     });
+    $scope.selIndex = index;
   };
 });

@@ -11,7 +11,8 @@
         <li class="list-group-item"><strong>Release Date:</strong> {{podcast.published | date: "mediumDate"}}</li>
       </ul>
       <button class='btn btn-primary' ng-click="getUserPlaylist(user, allPlaylist, $index)">+</button>
-      <select ng-show="selectedIndex === $index"
+      <select class="form-control"
+              ng-show="selectedIndex === $index"
               ng-options="playlist.title for playlist in userPlaylists"
               ng-model="selectedPlaylist"
               ng-change="addPodcastToPlaylist(podcast, selectedPlaylist)">

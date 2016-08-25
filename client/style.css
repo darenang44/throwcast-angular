@@ -3,6 +3,7 @@
 body {
   background: silver;
   position:relative;
+  bottom: 32px;
 }
 
 /*NAVIGATION*/

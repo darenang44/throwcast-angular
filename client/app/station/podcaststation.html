@@ -1,7 +1,7 @@
-<div class="views">
-  <hr>
+<div class="views" ng-show="selected.station">
+  <h1>{{selected.station.title}}</h1>
   <div>
-    <div class="mainDiv" ng-repeat='podcast in allStationPodcasts'>
+    <div class="mainDiv" ng-repeat='podcast in selected.station.podcasts'>
       <img class="img-thumbnail" ng-src="{{podcast.image || defaultImage}}"/>
       <ul class="list-group">
         <li class="list-group-item title" ng-click="play(podcast)"><strong>Title:</strong> <u>{{podcast.title}}</u></li>

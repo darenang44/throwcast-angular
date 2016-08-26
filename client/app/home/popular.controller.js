@@ -1,6 +1,6 @@
 angular.module('throwcast.popular')
 
-.controller('PopularController', function ($scope, $http, PodcastService, StationsService, userService, PlaylistService) {
+.controller('PopularController', function ($scope, $http, PodcastService, StationsService, userService, PlaylistService, API_BASE) {
   $scope.defaultImage = 'http://myndset.com/wp-content/uploads/2015/10/podcast-image.jpg';
   $scope.h1 = 'Top Podcast';
   $scope.message;
@@ -66,26 +66,26 @@ angular.module('throwcast.popular')
   };
 
   $scope.getPopularPodcast = function () {
-    $http.get('http://localhost:8888/api/podcasts/popular').then( function (res) {
+    $http.get(API_BASE + '/api/podcasts/popular').then( function (res) {
       $scope.popularPodcasts = res.data.data;
     });
   };
 
   $scope.getPopularStations = function () {
-    $http.get('http://localhost:8888/api/stations/popular').then( function (res) {
+    $http.get(API_BASE + '/api/stations/popular').then( function (res) {
       $scope.popularStations = res.data.data;
     });
   };
 
   $scope.addToQueue = function (userId, podcastId) {
-    $http.post('http://localhost:8888/api/user/' + userId + '/queue/', {podcastId: podcastId}).then(function (res) {
+    $http.post(API_BASE + '/api/user/' + userId + '/queue/', {podcastId: podcastId}).then(function (res) {
       $scope.message = $scope.podcasts.name + ' has been added to your queue.';
       $scope.getPodcast();
     });
   };
 
   $scope.addPodToPlaylist = function (playlistId, podcastId) {
-    $http.post('http://localhost:8888/api/playlist/' + playlistId + '/podcast/', {podcastId: podcastId}).then(function (res) {
+    $http.post(API_BASE + '/api/playlist/' + playlistId + '/podcast/', {podcastId: podcastId}).then(function (res) {
       $scope.message = $scope.podcasts.name + ' has been added to ' + res.data.name + '.';
       $scope.getPodcast();
     });

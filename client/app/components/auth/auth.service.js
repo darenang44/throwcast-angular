@@ -1,6 +1,6 @@
 angular.module('throwcast.auth')
 
-.factory('authService', function ($http, $window, $location, userService) {
+.factory('authService', function ($http, $window, $location, userService, API_BASE) {
   return {
     signUp: function (userCredentials) {
       return userService.createUser(userCredentials)
@@ -13,7 +13,7 @@ angular.module('throwcast.auth')
       });
     },
     signIn: function (userCredentials) {
-      return $http.post('http://api.throwcast.com/auth/local/', userCredentials)
+      return $http.post(API_BASE + '/auth/local/', userCredentials)
       .then(function (res) {
         $window.localStorage.token = res.data.token;
       })

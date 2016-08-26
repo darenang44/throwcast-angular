@@ -1,10 +1,10 @@
 angular.module('throwcast.podcast')
 
-.factory('PodcastService', function ($http) {
+.factory('PodcastService', function ($http, API_BASE) {
   var data = {};
   return {
     getAllPodcasts: function () {
-      return $http.get('http://api.throwcast.com/api/podcasts/').then( function (res) {
+      return $http.get(API_BASE + '/api/podcasts/').then( function (res) {
         data.podcasts = res.data;
       });
     },

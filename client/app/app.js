@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('throwcast', [
+  'throwcast.constants',
   'throwcast.profile',
   'throwcast.stations',
   'throwcast.popular',

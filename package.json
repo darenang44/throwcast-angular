@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/darenang44/throwcast-angular.git"
   },
+  "engines": {
+    "node": "v6.2.2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

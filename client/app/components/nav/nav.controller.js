@@ -66,4 +66,11 @@ angular.module('throwcast.nav', [])
    $scope.play = function (link) {
      $scope.podcastLink = PodcastService.play(link);
    };
+})
+
+.directive('tcNav', function() {
+  return {
+    templateUrl: '/app/components/nav/nav.html',
+    controller: 'NavController'
+  }
 });

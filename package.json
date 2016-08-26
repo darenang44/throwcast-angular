@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/darenang44/throwcast-angular.git"
+    "url": "git+https://github.com/TeamDODA/throwcast-angular.git"
   },
   "engines": {
     "node": "v6.2.2"
@@ -18,9 +18,9 @@
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/darenang44/throwcast-angular/issues"
+    "url": "https://github.com/TeamDODA/throwcast-angular/issues"
   },
-  "homepage": "https://github.com/darenang44/throwcast-angular#readme",
+  "homepage": "https://github.com/TeamDODA/throwcast-angular#readme",
   "dependencies": {
     "express": "^4.14.0"
   },

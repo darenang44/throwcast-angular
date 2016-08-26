@@ -37,6 +37,10 @@ body {
   background-size: cover;
 }
 
+.wrapper a {
+  color: white;
+}
+
 img {
   top: 0;
   display:block;
@@ -79,4 +83,14 @@ img {
   float: right;
   display: block;
   width: 40%;
+}
+
+label {
+  color: white;
+}
+
+h1 {
+  margin: 10px 0 20px 0;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
 }

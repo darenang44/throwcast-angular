@@ -9,8 +9,10 @@ angular.module('throwcast.stations')
       });
     },
     getStationPodcast: function (id) {
+      delete data.station;
       return $http.get('http://api.throwcast.com/api/stations/' + id + '/').then(function (station) {
         data.selectedStationPodcasts = station.data.podcasts;
+        data.station = station.data;
       });
     },
     data: data

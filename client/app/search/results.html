@@ -17,9 +17,8 @@
                 ng-show="selectedIndex === $index"
                 ng-options="playlist.title for playlist in userPlaylists"
                 ng-model="selectedPlaylist"
-                ng-change="addPodcastToPlaylist(podcast, selectedPlaylist)">
+                ng-change="selectedIndex = null; addPodcastToPlaylist(podcast, selectedPlaylist)">
         </select>
-        <p ng-show="selectedIndex === $index">{{message}}</p>
       </div>
     </div>
   </div>
@@ -37,7 +36,6 @@
           <li class="list-group-item description"><strong>Description:</strong> {{station.description.short || station.description.long}}</li>
         </ul>
         <button class='btn btn-primary' ng-click="subscribe(stations[$index]._id)">Subscribe</button>
-        <p ng-show="selIndex === $index">{{subMessage}}</p>
       </div>
     </div>
   </div>

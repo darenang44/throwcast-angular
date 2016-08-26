@@ -16,7 +16,6 @@
         <a href="/#/playlist/{{playlist._id}}">
           <li class="list-group-item"><strong>Playlist Title:</strong> <u>{{playlist.title}}</u></li>
         </a>
-       <li class="list-group-item"><strong>Created At:</strong> {{playlist.createdAt | date: 'mediumDate'}}</li>
       </ul>
       <button class='btn btn-primary' ng-click="deletePlaylist($index, UserPlaylistService.usersPlaylist[$index]._id)">Delete Playlist</button>
     </div>

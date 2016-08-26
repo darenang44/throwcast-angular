@@ -11,16 +11,16 @@
       <div>
         <ul class="list-inline">
           <li><a href="/#/">throwCAST</a></li>
-          <li><a href="/#/podcast/">Podcast List</a></li>
+          <li><a href="/#/podcast/">Podcasts</a></li>
           <li><a href="/#/stations/">Stations</a></li>
-          <li><a href="/#/playlist/">All Playlist</a></li>
+          <li><a href="/#/playlist/">Playlists</a></li>
           <li class="logout" ng-show="user.username" ng-click="logout()"><a href="/#/signin/">Logout</a></li>
           <li class="user"><a href="/#/profile/"><p ng-show="user.username">Welcome {{user.username}}!</p></a></li>
           <li class="search"><input type="text" placeholder="search" ng-model="searchQuery"> <button class="btn btn-primary" ng-click="getSearchResults(searchQuery)">Search</button></li>
         </ul>
       </div>
     </nav>
-    <div ng-controller="PlayerController" ng-show="podcast.selected" class="audioplayer">
+    <div ng-cloak ng-controller="PlayerController" ng-show="podcast.selected" class="audioplayer">
       <ul class="podcasttitle">Title: {{podcast.selected.title}}</ul>
       <audio id="audio" ng-src="{{podcast.selected.enclosure.url}}" controls autoplay></audio>
     </div>

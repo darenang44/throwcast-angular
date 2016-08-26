@@ -6,7 +6,7 @@
     "Daren Ang <darenang44@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/darenang44/throwcast-angular",
+  "homepage": "https://github.com/TeamDODA/throwcast-angular",
   "ignore": [
     "**/.*",
     "node_modules",

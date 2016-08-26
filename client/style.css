@@ -1,59 +1,46 @@
 /*BODY*/
 
+html {
+  height: 100%
+}
+
 body {
-  background: silver;
-  position:relative;
-  bottom: 32px;
-}
-
-/*NAVIGATION*/
-
-.logout {
-  float:right;
-}
-
-.user {
-  float:right;
-}
-
-.search {
-  float:right;
+  position: relative;
+  padding-top: 70px;
+  margin-bottom: 32px;
+  background-color: silver;
 }
 
 /*VIEWS*/
 
- .views {
-   text-align: center;
- }
+.views {
+  text-align: center;
+}
 
- .mainDiv {
-   display: inline-block;
-   width: 300px;
- }
+.mainDiv {
+  display: inline-block;
+  width: 300px;
+  padding-bottom: 15px;
+}
 
- img {
-   top: 0px;
-   display:block;
-   margin:auto;
-   width: 200px;
-   height: 150px;
- }
+img {
+  top: 0;
+  display:block;
+  margin:auto;
+  width: 200px;
+  height: 150px;
+}
 
- img,.facebookauth {
-   width: 250px;
-   height: 50px;
- }
+.description {
+  height:125px;
+  overflow-y: scroll;
+}
 
- .description {
-   height:125px;
-   overflow-y: scroll;
- }
-
- .title {
-   height:80px;
-   overflow-y: scroll;
-   text-align: center;
- }
+.title {
+  height:80px;
+  overflow-y: scroll;
+  text-align: center;
+}
 
 /*AUDIO PLAYER*/
 
@@ -74,8 +61,8 @@ body {
   padding: 6px;
 }
 
- #audio {
-   float: right;
-   display: block;
-   width: 40%;
+#audio {
+  float: right;
+  display: block;
+  width: 40%;
 }

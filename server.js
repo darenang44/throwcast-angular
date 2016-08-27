@@ -4,5 +4,6 @@ const express = require('express');
 const app = express();
 
 app.use(express.static(__dirname + '/client'));
+app.set('port', (process.env.PORT || 3000));
 
-app.listen((process.env.PORT || 3000), () => console.log(`listening on port ${process.env}...`));
+app.listen(app.get('port'), () => console.log(`listening on port ${app.get('port')}...`));

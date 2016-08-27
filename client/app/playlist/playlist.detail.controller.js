@@ -1,6 +1,6 @@
 angular.module('throwcast.playlist')
 
-.controller('PlaylistDetailController', function ($scope, $http, PlaylistService, $routeParams, userService, UserPlaylistService, PodcastService) {
+.controller('PlaylistDetailController', function ($scope, PlaylistService, $routeParams, userService, UserPlaylistService, PodcastService) {
   userService.getUserAsync().then(function (user) {
     $scope.user = user;
   });

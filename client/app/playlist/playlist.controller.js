@@ -1,7 +1,7 @@
 angular.module('throwcast.playlist')
 
-.controller('PlaylistController', function ($scope, $http, PlaylistService) {
-  PlaylistService.getAllPlaylist().then(function (res) {
+.controller('PlaylistController', function ($scope, PlaylistService) {
+  PlaylistService.getAllPlaylist().then(function () {
     $scope.allPlaylist = PlaylistService.data.allPlaylist;
   });
   $scope.getSpecificPlaylist = function (playlistId) {

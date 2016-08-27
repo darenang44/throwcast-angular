@@ -1,6 +1,6 @@
 angular.module('throwcast.podcast')
 
-.controller('PodcastController', function ($scope, $http, PodcastService, userService, PlaylistService) {
+.controller('PodcastController', function ($scope, PodcastService, userService, PlaylistService) {
   $scope.defaultImage = 'http://myndset.com/wp-content/uploads/2015/10/podcast-image.jpg';
   PodcastService.getAllPodcasts().then(function () {
     $scope.podcasts = PodcastService.data.podcasts;
